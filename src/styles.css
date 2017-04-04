@@ -4,3 +4,43 @@ h1 {
   font-size: 250%;
   text-align: center;
 }
+h2{
+  color: darkslategrey;
+  font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;
+  font-size: 150%;
+}
+.tapes {
+    margin: 0 0 2em 0;
+    list-style-type: none;
+    padding: 0;
+    width: 30em;
+    font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;
+    }
+.tapes li {
+    cursor: pointer;
+    position: relative;
+    left: 0;
+    background-color: #EEE;
+    margin: .5em;
+    padding: .3em 0;
+    height: 1.6em;
+    border-radius: 4px;
+  }
+.tapes .text {
+    position: relative;
+    top: -3px;
+  }
+.tapes .badge {
+    display: inline-block;
+    font-size: small;
+    color: white;
+    padding: 0.8em 0.7em 0 0.7em;
+    background-color: darkslategrey;
+    line-height: 1em;
+    position: relative;
+    left: -1px;
+    top: -4px;
+    height: 1.8em;
+    margin-right: .8em;
+    border-radius: 4px 0 0 4px;
+  }
