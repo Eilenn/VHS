@@ -4,7 +4,7 @@ import { TAPES } from './mock-tapes';
 
 @Injectable()
 export class TapeService {
-    getTapes(): Tape[] {
-        return TAPES;
+    getTapes(): Promise<Tape[]> {
+        return Promise.resolve(TAPES);
     } 
 }
