@@ -11,6 +11,7 @@ import { TapeService }         from './tape.service';
 
 const appRoutes: Routes = [
   { path: 'tapes', component: TapesComponent},
+  { path: 'detail/:id', component: TapeDetailComponent }
 ];
 
 @NgModule({

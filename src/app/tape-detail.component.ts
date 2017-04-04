@@ -1,10 +1,24 @@
-import { Component,Input } from '@angular/core';
-import{Tape} from './tape';
+import { Component,Input, OnInit } from '@angular/core';
+import { ActivatedRoute, Params }   from '@angular/router';
+import { Location }                 from '@angular/common';
+import { Tape } from './tape';
+import { TapeService } from "./tape.service";
+import 'rxjs/add/operator/switchMap';
 
 @Component({
   selector: 'tape-detail',
   templateUrl: './templates/tapeDetail.html'
 })
-export class TapeDetailComponent {
+export class TapeDetailComponent implements OnInit {
     @Input() tape: Tape;
+    constructor(
+  private tapeService: TapeService,
+  private route: ActivatedRoute,
+  private location: Location
+) {}
+ngOnInit(): void {
+  this.route.params
+    .switchMap((params: Params) => this.tapeService.getTape(+params['id']))
+    .subscribe(tape => this.tape = tape);
+}
 }
