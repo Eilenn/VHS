@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { TapeService } from "./tape.service";
+import { TapeService } from './tape.service';
 @Component({
   selector: 'my-app',
   templateUrl: './templates/mainView.html',

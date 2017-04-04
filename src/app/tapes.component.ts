@@ -7,7 +7,6 @@ import { OnInit } from '@angular/core';
   selector: 'my-tapes',
   templateUrl: './templates/vhsListing.html',
   providers: [TapeService]
-  //'./templates/mainView.html',
 })
 export class TapesComponent implements OnInit {
   tape = new Tape(1, "Casablanca", "Michael Curtiz", 1942);
