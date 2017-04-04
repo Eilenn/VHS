@@ -21,4 +21,7 @@ ngOnInit(): void {
     .switchMap((params: Params) => this.tapeService.getTape(+params['id']))
     .subscribe(tape => this.tape = tape);
 }
+goBack(): void {
+  this.location.back();
+}
 }
