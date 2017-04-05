@@ -6,12 +6,14 @@ import { TapesComponent } from './tapes.component';
 import { TapeDetailComponent } from './tape-detail.component';
 import { TapeService } from './tape.service';
 import { AppRoutingModule } from './app-routing.module';
+import { SubscribedCustomersComponent } from "./subscribed-customers.component";
+import { RentedTapesComponent } from "./rented-tapes.component";
 
 @NgModule({
   imports: [BrowserModule, AppRoutingModule],
   declarations: [AppComponent,
     TapeDetailComponent,
-    TapesComponent],
+    TapesComponent, SubscribedCustomersComponent,RentedTapesComponent],
   providers: [
     TapeService
   ],
