@@ -19,6 +19,7 @@ h3{
   margin-left: 40px;
   
 }
+
 body{
 background-color: Turquoise;
 }
@@ -44,4 +45,7 @@ background-color: Turquoise;
 }
 .back{
   font-family: 'Press Start 2P', cursive;  
+}
+.row{
+   font-family: 'Press Start 2P', cursive; 
 }
