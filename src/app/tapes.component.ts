@@ -3,10 +3,11 @@ import { Tape } from './tape';
 import {Router} from '@angular/router';
 import { TapeService } from './tape.service';
 import { OnInit } from '@angular/core';
+import { Location }                 from '@angular/common';
 
 @Component({
   selector: 'my-tapes',
-  templateUrl: './templates/vhsListing.html',
+  templateUrl: './templates/tapes.component.html',
   providers: [TapeService]
 })
 export class TapesComponent implements OnInit {
@@ -16,7 +17,7 @@ export class TapesComponent implements OnInit {
   onSelect(tape: Tape): void {
     this.selectedTape = tape;
   }
-  constructor(private router: Router,private tapeService: TapeService) {
+  constructor(private router: Router,private location: Location,private tapeService: TapeService) {
 
   }
   getTapes(): void {
@@ -28,4 +29,7 @@ export class TapesComponent implements OnInit {
     gotoDetail(): void {
     this.router.navigate(['/detail', this.selectedTape.id]);
   }
+  goBack(): void {
+  this.location.back();
+}
 }

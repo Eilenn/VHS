@@ -1,0 +1,12 @@
+<div class="listing">
+<h2>VHS Movies listing</h2>
+  <router-outlet></router-outlet>
+<ul class="tapes">
+  <li *ngFor="let tape of tapes"   (click)="onSelect(tape);gotoDetail()">
+      <span class="badge">{{tape.id}}</span> {{tape.title}}
+  </li>
+</ul>
+<nav>
+<button (click)="goBack()">Back</button>
+</nav>
+</div>

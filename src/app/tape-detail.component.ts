@@ -9,7 +9,7 @@ import { TapeService } from "./tape.service";
 
 @Component({
   selector: 'tape-detail',
-  templateUrl: './templates/tapeDetail.html'
+  templateUrl: './templates/tape-detail.component.html'
 })
 export class TapeDetailComponent implements OnInit {
     @Input() tape: Tape;

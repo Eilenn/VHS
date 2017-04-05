@@ -9,6 +9,9 @@ h2{
   font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;
   font-size: 150%;
 }
+.main{
+  margin-left: 40px;
+}
 .tapeDetails{
  font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;
 }

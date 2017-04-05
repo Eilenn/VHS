@@ -4,7 +4,7 @@ export class Tape {
         public title: string,
         public director: string,
         public year: number,
-        public country?: string,
+        public country?:string,
         public category?: string) {
     }
 }
