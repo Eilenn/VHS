@@ -6,5 +6,5 @@ import { TapeService } from './tape.service';
   providers:[TapeService]
 })
 export class AppComponent {
-  name = 'VHS Rental';
+  name = 'VHS Rental Service';
 }
