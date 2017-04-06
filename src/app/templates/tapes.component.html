@@ -8,8 +8,9 @@
   </div>
 </div>
 <br/>
+<button class="back" (click)="sortByTitle()">Sort by title</button>
 <div class="list-group">
-  <a *ngFor="let tape of tapes | tapeFilter: listFilter" (click)="onSelect(tape);gotoDetail()" class="list-group-item">{{tape.title}}</a>
+  <a *ngFor="let tape of tapes |tapeFilter: listFilter" (click)="onSelect(tape);gotoDetail()" class="list-group-item">{{tape.title}}</a>
   <nav>
     <br/>
     <button class="back" (click)="goBack()">Back</button>

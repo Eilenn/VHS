@@ -11,7 +11,6 @@ import {TapeStatus} from './tape-status';
   templateUrl: './templates/tape-detail.component.html'
 })
 export class TapeDetailComponent implements OnInit {
-  //VhsState: typeof VhsState = VhsState;
   TapeStatus: typeof TapeStatus=TapeStatus;
   @Input() tape: Tape;
   constructor(
