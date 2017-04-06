@@ -16,7 +16,7 @@ import { TapeFilterPipe } from "./tape-filter.pipe";
   declarations: [AppComponent,
     TapeDetailComponent,
     TapesComponent, SubscribedCustomersComponent,RentedTapesComponent,
-    TapeFilterPipe],
+    TapeFilterPipe, RentedTapesComponent],
   providers: [
     TapeService
   ],

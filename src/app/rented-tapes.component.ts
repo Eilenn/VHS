@@ -1,4 +1,5 @@
 import { Component } from "@angular/core";
+import { Location }                 from '@angular/common';
 import { TapeService } from "./tape.service";
 import { Tape } from "./tape";
 
@@ -9,13 +10,16 @@ import { Tape } from "./tape";
 })
 export class RentedTapesComponent{
      tapes: Tape[];
-    constructor(private tapeService: TapeService) {
+    constructor(private tapeService: TapeService, private location: Location) {
 
   }
-      getTapes(): void {
-    this.tapeService.getTapes().then(tapes=>this.tapes=tapes);
+      getRentedTapes(): void {
+    this.tapeService.getRentedTapes().then(tapes=>this.tapes=tapes);
   }
   ngOnInit(): void {
-    this.getTapes();
+    this.getRentedTapes();
   }
+    goBack(): void {
+  this.location.back();
+}
 }

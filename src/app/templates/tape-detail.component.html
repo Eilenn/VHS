@@ -11,6 +11,7 @@
         <div><label>category: </label>{{tape.category}}</div>
         <div *ngIf="tape.status==0"><label>status: </label>available</div>
         <div *ngIf="tape.status==1"><label>status: </label>rented</div>
+         <div *ngIf="tape.customer"><label>customer: </label>{{tape.customer}}</div>
     </div>
     <div>
         <button *ngIf="tape.status==0" class="back">Rent</button>

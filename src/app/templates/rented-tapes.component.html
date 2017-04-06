@@ -1,6 +1,6 @@
 <h2>List of rented tapes</h2>
 <div class="list-group">
-  <a *ngFor="let tape of tapes"   (click)="onSelect(tape);gotoDetail()" class="list-group-item">{{tape.title}}</a>
+  <a *ngFor="let tape of tapes"  class="list-group-item">{{tape.title}}</a>
   <nav>
     <br/>
 <button class="back" (click)="goBack()">Back</button>

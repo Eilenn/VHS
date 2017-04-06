@@ -1,4 +1,5 @@
-import{TapeStatus} from './tape-status';
+import { TapeStatus } from './tape-status';
+import { Customer } from "./customer";
 export interface ITape {
    
         id: number;
@@ -6,7 +7,8 @@ export interface ITape {
         director: string;
         year: number;
         price:number;
-        status?:TapeStatus;
+        status:TapeStatus;
+        customer?: Customer;
         rating?:number;
         country?:string;
         category?: string;
@@ -20,7 +22,8 @@ export class Tape implements ITape{
         public director: string,
         public year: number,
         public price:number,
-        public status?:TapeStatus,
+        public status:TapeStatus,
+        public customer?: Customer,
         public rating?:number,
         public country?:string,
         public category?: string) {

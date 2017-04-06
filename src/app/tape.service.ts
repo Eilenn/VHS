@@ -11,4 +11,8 @@ export class TapeService {
         return this.getTapes()
             .then(tapes => tapes.find(tape => tape.id === id));
     }
+    getRentedTapes(): Promise<Tape[]> {
+        return this.getTapes()
+            .then(tapes => tapes.filter(tape => tape.status === 1));
+    }
 }
