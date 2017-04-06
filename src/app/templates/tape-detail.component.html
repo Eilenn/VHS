@@ -9,11 +9,12 @@
         <div><label>rating: </label>{{tape.rating}}</div>
         <div><label>country: </label>{{tape.country}}</div>
         <div><label>category: </label>{{tape.category}}</div>
-        <div><label>status: </label>{{tape.status}}</div>
+        <div *ngIf="tape.status==0"><label>status: </label>available</div>
+        <div *ngIf="tape.status==1"><label>status: </label>rented</div>
     </div>
     <div>
-        <button class="back">Rent</button>
-    <button class="back">Collect</button>
+        <button *ngIf="tape.status==0" class="back">Rent</button>
+    <button *ngIf="tape.status==1" class="back">Collect</button>
         </div>
         <br/>
             <div >
