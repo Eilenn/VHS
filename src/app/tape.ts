@@ -23,6 +23,7 @@ export class Tape implements ITape{
         public year: number,
         public price:number,
         public status:TapeStatus,
+        public renter?: string,
         public customer?: Customer,
         public rating?:number,
         public country?:string,

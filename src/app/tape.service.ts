@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Tape } from './tape';
 import { TAPES } from './mock-tapes';
+import { TapeStatus } from "./tape-status";
 
 @Injectable()
 export class TapeService {
@@ -12,7 +13,8 @@ export class TapeService {
             .then(tapes => tapes.find(tape => tape.id === id));
     }
     getRentedTapes(): Promise<Tape[]> {
+        let rented = TapeStatus.RENTED;
         return this.getTapes()
-            .then(tapes => tapes.filter(tape => tape.status === 1));
+            .then(tapes => tapes.filter(tape => tape.status === rented));
     }
 }

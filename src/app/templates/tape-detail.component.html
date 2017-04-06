@@ -5,13 +5,13 @@
         <div><label>title: </label>{{tape.title}}</div>
         <div><label>director: </label>{{tape.director}}</div>
         <div><label>year of production: </label>{{tape.year}}</div>
-        <div><label>price: </label>{{tape.price|currency:'USD':true}}</div>
-        <div><label>rating: </label>{{tape.rating}}</div>
         <div><label>country: </label>{{tape.country}}</div>
         <div><label>category: </label>{{tape.category}}</div>
+        <div><label>price: </label>{{tape.price|currency:'USD':true}}</div>
+        <div><label>rating: </label><star [rating]='tape.rating'></star></div>
         <div *ngIf="tape.status==0"><label>status: </label>available</div>
         <div *ngIf="tape.status==1"><label>status: </label>rented</div>
-         <div *ngIf="tape.customer"><label>customer: </label>{{tape.customer}}</div>
+         <div *ngIf="tape.customer"><label>customer: </label>{{tape.customer.firstName}} {{tape.customer.lastName}}</div>
     </div>
     <div>
         <button *ngIf="tape.status==0" class="back">Rent</button>

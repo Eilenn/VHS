@@ -10,16 +10,16 @@ import { Tape } from "./tape";
 })
 export class RentedTapesComponent{
      tapes: Tape[];
-    constructor(private tapeService: TapeService, private location: Location) {
+    constructor(private _tapeService: TapeService, private _location: Location) {
 
   }
       getRentedTapes(): void {
-    this.tapeService.getRentedTapes().then(tapes=>this.tapes=tapes);
+    this._tapeService.getRentedTapes().then(tapes=>this.tapes=tapes);
   }
   ngOnInit(): void {
     this.getRentedTapes();
   }
     goBack(): void {
-  this.location.back();
+  this._location.back();
 }
 }

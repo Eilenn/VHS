@@ -18,19 +18,19 @@ export class TapesComponent implements OnInit {
   onSelect(tape: Tape): void {
     this.selectedTape = tape;
   }
-  constructor(private router: Router,private location: Location,private tapeService: TapeService) {
+  constructor(private _router: Router,private _location: Location,private _tapeService: TapeService) {
 
   }
   getTapes(): void {
-    this.tapeService.getTapes().then(tapes=>this.tapes=tapes);
+    this._tapeService.getTapes().then(tapes=>this.tapes=tapes);
   }
   ngOnInit(): void {
     this.getTapes();
   }
     gotoDetail(): void {
-    this.router.navigate(['/detail', this.selectedTape.id]);
+    this._router.navigate(['/detail', this.selectedTape.id]);
   }
   goBack(): void {
-  this.location.back();
+  this._location.back();
 }
 }

@@ -49,3 +49,20 @@ background-color: Turquoise;
 .row{
    font-family: 'Press Start 2P', cursive; 
 }
+table{
+  border-color: black;
+  font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;
+    font-size: 12pt;
+    background-color: whitesmoke;
+}
+a{
+  color:black;
+  font-weight: bols;
+  font-size: 12pt;
+}
+th{
+  font-family: 'Press Start 2P', cursive;  
+}
+.table-responsive{
+  width:80%;
+}

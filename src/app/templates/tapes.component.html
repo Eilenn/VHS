@@ -1,17 +1,17 @@
 <div class="listing">
-<h2>VHS Movies listing</h2>
+  <h2>VHS Movies listing</h2>
 </div>
-        <div class='row'>
-            <div class='col-md-2'>Filter:</div>
-            <div class='col-md-4'>
-                <input type='text'  [(ngModel)]='listFilter'/>
-            </div>
-        </div>
-        <br/>
+<div class='row'>
+  <div class='col-md-2'>Filter:</div>
+  <div class='col-md-4'>
+    <input type='text' [(ngModel)]='listFilter' />
+  </div>
+</div>
+<br/>
 <div class="list-group">
-  <a *ngFor="let tape of tapes | tapeFilter: listFilter"   (click)="onSelect(tape);gotoDetail()" class="list-group-item">{{tape.title}}</a>
+  <a *ngFor="let tape of tapes | tapeFilter: listFilter" (click)="onSelect(tape);gotoDetail()" class="list-group-item">{{tape.title}}</a>
   <nav>
     <br/>
-<button class="back" (click)="goBack()">Back</button>
-</nav>
+    <button class="back" (click)="goBack()">Back</button>
+  </nav>
 </div>

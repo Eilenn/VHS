@@ -1,8 +1,28 @@
 <h2>List of rented tapes</h2>
-<div class="list-group">
-  <a *ngFor="let tape of tapes"  class="list-group-item">{{tape.title}}</a>
-  <nav>
-    <br/>
-<button class="back" (click)="goBack()">Back</button>
-</nav>
+<div class='table-responsive'>
+  <table class='table' *ngIf='tapes && tapes.length'>
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Customer name</th>
+        <th>5 Star Rating</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let tape of tapes">
+
+        <td><a [routerLink]="['/detail',tape.id]">
+          {{tape.title}}
+</a>
+        </td>
+        <td *ngIf="tape.customer">{{ tape.customer.firstName}} {{tape.customer.lastName}}</td>
+        <td *ngIf="tape.customer===undefined">undefined</td>
+        <td>
+          <star [rating]='tape.rating'>
+          </star>
+        </td>
+      </tr>
+    </tbody>
+  </table>
 </div>
+    <button class="back" (click)="goBack()">Back</button>
