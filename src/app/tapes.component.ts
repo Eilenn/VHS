@@ -13,7 +13,7 @@ import { Location }                 from '@angular/common';
 export class TapesComponent implements OnInit {
   tapes: Tape[];
   selectedTape: Tape;
-  listFilter: string='film';
+  listFilter: string;
 
   onSelect(tape: Tape): void {
     this.selectedTape = tape;
