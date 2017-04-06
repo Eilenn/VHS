@@ -4,12 +4,15 @@ import { ActivatedRoute, Params } from '@angular/router';
 import { Location } from '@angular/common';
 import { Tape } from './tape';
 import { TapeService } from "./tape.service";
+import {TapeStatus} from './tape-status';
 
 @Component({
   selector: 'tape-detail',
   templateUrl: './templates/tape-detail.component.html'
 })
 export class TapeDetailComponent implements OnInit {
+  //VhsState: typeof VhsState = VhsState;
+  TapeStatus: typeof TapeStatus=TapeStatus;
   @Input() tape: Tape;
   constructor(
     private _tapeService: TapeService,

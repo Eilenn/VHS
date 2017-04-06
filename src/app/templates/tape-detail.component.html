@@ -9,13 +9,12 @@
         <div><label>category: </label>{{tape.category}}</div>
         <div><label>price: </label>{{tape.price|currency:'USD':true}}</div>
         <div><label>rating: </label><star [rating]='tape.rating'></star></div>
-        <div *ngIf="tape.status==0"><label>status: </label>available</div>
-        <div *ngIf="tape.status==1"><label>status: </label>rented</div>
+         <div><label>status: </label>{{TapeStatus[tape.status] | lowercase}}</div>
          <div *ngIf="tape.customer"><label>customer: </label>{{tape.customer.firstName}} {{tape.customer.lastName}}</div>
     </div>
     <div>
-        <button *ngIf="tape.status==0" class="back">Rent</button>
-    <button *ngIf="tape.status==1" class="back">Collect</button>
+        <button *ngIf="tape.status==TapeStatus.AVAILABLE" class="back">Rent</button>
+    <button *ngIf="tape.status==TapeStatus.RENTED" class="back">Collect</button>
         </div>
         <br/>
             <div >
