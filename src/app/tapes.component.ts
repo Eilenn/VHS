@@ -33,15 +33,7 @@ export class TapesComponent implements OnInit {
   goBack(): void {
   this._location.back();
 }
-sortByTitle(){
-          this.tapes.sort((a: any, b: any) => {
-            if (a.title < b.title) {
-                return -1;
-            } else if (a.title > b.title) {
-                return 1;
-            } else {
-                return 0;
-            }
-        });
-}
+  getSortedTapes(): void{
+    this._tapeService.getSortedTapes().then(tapes=>this.tapes=tapes);
+  }
 }

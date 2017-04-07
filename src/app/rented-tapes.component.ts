@@ -22,4 +22,10 @@ export class RentedTapesComponent{
     goBack(): void {
   this._location.back();
 }
+  getRentedSortedTapes(): void{
+    this._tapeService.getRentedSortedTapes().then(tapes=>this.tapes=tapes);
+  }
+    getRentedTapesSortedByRating(): void{
+    this._tapeService.getRentedTapesSortedByRating().then(tapes=>this.tapes=tapes);
+  }
 }

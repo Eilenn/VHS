@@ -1,4 +1,9 @@
 <h2>List of rented tapes</h2>
+<div>
+<button class="back" (click)="getRentedSortedTapes()">Sort alphabetically</button>
+<button class="back" (click)="getRentedTapesSortedByRating()">Sort by rating</button>
+</div>
+<br/>
 <div class='table-responsive'>
   <table class='table' *ngIf='tapes && tapes.length'>
     <thead>
