@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import { Tape } from './tape';
-import {Router} from '@angular/router';
+import { Router } from '@angular/router';
 import { TapeService } from './tape.service';
 import { OnInit } from '@angular/core';
-import { Location }                 from '@angular/common';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'my-tapes',
@@ -18,22 +18,22 @@ export class TapesComponent implements OnInit {
   onSelect(tape: Tape): void {
     this.selectedTape = tape;
   }
-  constructor(private _router: Router,private _location: Location,private _tapeService: TapeService) {
+  constructor(private _router: Router, private _location: Location, private _tapeService: TapeService) {
 
   }
   getTapes(): void {
-    this._tapeService.getTapes().then(tapes=>this.tapes=tapes);
+    this._tapeService.getTapes().then(tapes => this.tapes = tapes);
   }
   ngOnInit(): void {
     this.getTapes();
   }
-    gotoDetail(): void {
+  gotoDetail(): void {
     this._router.navigate(['/detail', this.selectedTape.id]);
   }
   goBack(): void {
-  this._location.back();
-}
-  getSortedTapes(): void{
-    this._tapeService.getSortedTapes().then(tapes=>this.tapes=tapes);
+    this._location.back();
+  }
+  getSortedTapes(): void {
+    this._tapeService.getSortedTapes('title').then(tapes => this.tapes = tapes);
   }
 }
