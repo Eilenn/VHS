@@ -12,12 +12,10 @@ export class TapeFormComponent {
 
     model = new Tape(15, 'The Silence of the Lambs', 'Jonathan Demme', 1991,1.99,TapeStatus.AVAILABLE,null,5);
 
-    submitted = false;
-
     onSubmit() {
         let index=TAPES.length+1;
         this.model.id=index;
-        TAPES.push(this.model);
-        this.submitted = true;
+        let newTape: Tape=Object.assign({},this.model);
+        TAPES.push(newTape);
     }
 }

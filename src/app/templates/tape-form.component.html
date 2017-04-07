@@ -1,5 +1,5 @@
 <div class="container">
-  <form (ngSubmit)="onSubmit()" #tapeForm="ngForm" submitted=false>
+  <form (ngSubmit)="onSubmit()" #tapeForm="ngForm" submission=false>
     <div class="form-group">
       <label for="title">Title</label>
       <input type="text" class="form-control" id="title" required [(ngModel)]="model.title" name="title" #title="ngModel">
@@ -33,9 +33,9 @@
       <label for="category">Category</label>
       <input type="text" class="form-control" id="category">
     </div>
-    <button type="submit" class="back" [disabled]="!tapeForm.form.valid">Submit</button>
+    <button type="submit" class="back" (click)="submission=true" [disabled]="!tapeForm.form.valid">Submit</button>
   </form>
-  <div *ngIf="submitted===true">
+  <div *ngIf="submission===true">
     <p>Tape added.</p>
   </div>
 </div>

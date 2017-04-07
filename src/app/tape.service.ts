@@ -18,11 +18,12 @@ export class TapeService {
             .then(tapes => tapes.filter(tape => tape.status === rented));
     }
     getSortedTapes(parameter: string): Promise<Tape[]> {
+        parameter = parameter ? parameter.toLocaleLowerCase() : null;
         return this.getTapes()
             .then(tapes => tapes.sort((a: any, b: any) => {
-                if (a[parameter] < b[parameter]) {
+                if (a[parameter].toLocaleLowerCase() < b[parameter].toLocaleLowerCase()) {
                     return -1;
-                } else if (a[parameter] > b[parameter]) {
+                } else if (a[parameter].toLocaleLowerCase() > b[parameter].toLocaleLowerCase()) {
                     return 1;
                 } else {
                     return 0;
