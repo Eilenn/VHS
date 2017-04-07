@@ -66,3 +66,17 @@ th{
 .table-responsive{
   width:80%;
 }
+p{
+  font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;
+    font-size: 12pt;
+}
+.form-group{
+    font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;
+    font-size: 12pt;
+}
+.form-control{
+  width: 300px;
+}
+.modal-dialog{
+  background-color: whitesmoke;
+}

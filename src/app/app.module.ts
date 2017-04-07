@@ -11,13 +11,14 @@ import { SubscribedCustomersComponent } from "./subscribed-customers.component";
 import { RentedTapesComponent } from "./rented-tapes.component";
 import { TapeFilterPipe } from "./tape-filter.pipe";
 import { StarComponent } from "./star.component";
+import { TapeFormComponent } from "./tape-form.component";
 
 @NgModule({
   imports: [BrowserModule, AppRoutingModule, FormsModule],
   declarations: [AppComponent,
     TapeDetailComponent,
     TapesComponent, SubscribedCustomersComponent,RentedTapesComponent,
-    TapeFilterPipe, RentedTapesComponent,StarComponent],
+    TapeFilterPipe, RentedTapesComponent,StarComponent, TapeFormComponent],
   providers: [
     TapeService
   ],
