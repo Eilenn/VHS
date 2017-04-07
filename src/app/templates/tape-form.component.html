@@ -2,23 +2,23 @@
     <form>
         <div class="form-group">
         <label for="id">Id</label>
-        <input type="number" class="form-control" id="id" required>
+        <input type="number" class="form-control" id="id" required [(ngModel)]="model.id" name="id">
       </div>
       <div class="form-group">
         <label for="title">Title</label>
-        <input type="text" class="form-control" id="title" required>
+        <input type="text" class="form-control" id="title" required [(ngModel)]="model.title" name="title">
       </div>
       <div class="form-group">
         <label for="director">Director</label>
-        <input type="text" class="form-control" id="director" required>
+        <input type="text" class="form-control" id="director" required [(ngModel)]="model.director" name="director">
       </div>
               <div class="form-group">
         <label for="year">Year of production</label>
-        <input type="number" class="form-control" id="year" required>
+        <input type="number" class="form-control" id="year" required [(ngModel)]="model.year" name="year">
       </div>
                     <div class="form-group">
         <label for="price">Price</label>
-        <input type="number" class="form-control" id="price" required>
+        <input type="number" class="form-control" id="price" required [(ngModel)]="model.price" name="price">
       </div>
             <div class="form-group">
         <label for="country">Country</label>

@@ -1,1 +1,4 @@
 <h2>Subscribed customers</h2>
+<div class="list-group">
+  <a *ngFor="let customer of customers" class="list-group-item">{{customer.firstName}} {{customer.lastName}}</a>
+</div>

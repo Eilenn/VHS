@@ -39,8 +39,6 @@
   <a *ngFor="let tape of tapes |tapeFilter: listFilter" (click)="onSelect(tape);gotoDetail()" class="list-group-item">{{tape.title}}</a>
   <nav>
     <br/>
-     <!-- Trigger the modal with a button -->
-
     <button class="back" (click)="goBack()">Back</button>
   </nav>
 </div>
