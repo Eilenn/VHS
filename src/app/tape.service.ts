@@ -30,7 +30,7 @@ export class TapeService {
                 }
             }));
     }
-    getRentedTapesSortedByParameter(parameter:string): Promise<Tape[]> {
+    getRentedTapesSortedByParameter(parameter: string): Promise<Tape[]> {
         return this.getRentedTapes()
             .then(tapes => tapes.sort((a: any, b: any) => {
                 if (a[parameter] < b[parameter]) {
@@ -42,7 +42,7 @@ export class TapeService {
                 }
             }));
     }
-      getCategories() {
-    return ['Horror','Crime','War', 'Comedy', 'Science-Fiction', 'Drama', 'Thriller','Musical'];
-  }
+    getCategories() {
+        return ['Horror', 'Crime', 'War', 'Comedy', 'Science-Fiction', 'Drama', 'Thriller', 'Musical'];
+    }
 }

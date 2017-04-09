@@ -15,9 +15,9 @@ export class TapesComponent implements OnInit {
   selectedTape: Tape;
   listFilter: string;
 
- /* onSelect(tape: Tape): void {
-    this.selectedTape = tape;
-  }*/
+  /* onSelect(tape: Tape): void {
+     this.selectedTape = tape;
+   }*/
   constructor(private _router: Router, private _location: Location, private _tapeService: TapeService) {
 
   }
@@ -39,7 +39,7 @@ export class TapesComponent implements OnInit {
   getTapesSortedByRating(): void {
     this._tapeService.getSortedTapes('rating').then(tapes => this.tapes = tapes);
   }
-    getTapesSortedByYear(): void {
+  getTapesSortedByYear(): void {
     this._tapeService.getSortedTapes('year').then(tapes => this.tapes = tapes);
   }
 }

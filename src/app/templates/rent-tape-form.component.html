@@ -1,0 +1,14 @@
+<div class="container">
+  <form #rentTapeForm="ngForm" submission=false>
+    <div class="form-group">
+      <label for="customerFN">Customer first name</label>
+      <input type="text" class="form-control" id="customerFN" [(ngModel)]="customerFN"  name="firstName" #firstName="ngModel">
+    </div>
+    <div class="form-group">
+      <label for="customerLN">Customer last name</label>
+      <input type="text" class="form-control" id="customerLN" [(ngModel)]="customerLN"  name="lastName" #lastName="ngModel">
+    </div>
+
+    <button type="submit" class="back" (click)="rent(tapeForRent, customerFN,customerLN)" [disabled]="!rentTapeForm.form.valid">Submit</button>
+  </form>
+</div>

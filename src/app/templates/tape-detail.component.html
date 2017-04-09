@@ -1,5 +1,27 @@
+        <div class="container">
+  <!-- Modal -->
+  <div class="modal fade" id="rentModal" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <p class="modal-title">Rent a tape</p>
+        </div>
+        <div class="modal-body">
+          <rent-tape-form [tapeToRent]='tape'></rent-tape-form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="back" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 <div *ngIf="tape">
     <h3>"{{tape.title}}" details:</h3>
+
     <div class="tapeDetails">
         <div><label>id: </label>{{tape.id}}</div>
         <div><label>title: </label>{{tape.title}}</div>
@@ -13,7 +35,7 @@
          <div *ngIf="tape.customer"><label>customer: </label>{{tape.customer.firstName}} {{tape.customer.lastName}}</div>
     </div>
     <div>
-        <button *ngIf="tape.status==TapeStatus.AVAILABLE" class="back">Rent</button>
+        <button *ngIf="tape.status==TapeStatus.AVAILABLE" class="back" data-toggle="modal" data-target="#rentModal">Rent</button>
     <button *ngIf="tape.status==TapeStatus.RENTED" class="back">Collect</button>
         </div>
         <br/>

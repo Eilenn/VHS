@@ -22,6 +22,27 @@
     </div>
   </div>
 </div>
+        <div class="container">
+  <!-- Modal -->
+  <div class="modal fade" id="rentModal" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <p class="modal-title">Rent a tape</p>
+        </div>
+        <div class="modal-body">
+          <rent-tape-form [tapeToRent]='tape'></rent-tape-form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="back" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 <div class='row'>
   <div class='col-md-2'>Filter:</div>
   <div class='col-md-4'>
@@ -30,10 +51,10 @@
 </div>
 <br/>
 <div>
-<button class="back" (click)="getSortedTapes()">Sort alphabetically</button>
-<button class="back" (click)="getTapesSortedByRating()">Sort by rating</button>
-<button class="back" (click)="getTapesSortedByYear()">Sort by year</button>
-<button type="button" class="back" data-toggle="modal" data-target="#myModal">Add a tape</button>
+  <button class="back" (click)="getSortedTapes()">Sort alphabetically</button>
+  <button class="back" (click)="getTapesSortedByRating()">Sort by rating</button>
+  <button class="back" (click)="getTapesSortedByYear()">Sort by year</button>
+  <button type="button" class="back" data-toggle="modal" data-target="#myModal">Add a tape</button>
 </div>
 <br/>
 
@@ -58,7 +79,9 @@
           <star [rating]='tape.rating'>
           </star>
         </td>
-        <td><button *ngIf="tape.status===0" class="back">Rent</button><button *ngIf="tape.status===1" class="back">Collect</button></td>
+
+        <td><button *ngIf="tape.status===0" class="back" data-toggle="modal" data-target="#rentModal" >Rent</button>
+        <button *ngIf="tape.status===1" class="back">Collect</button></td>
 
       </tr>
     </tbody>
