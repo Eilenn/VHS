@@ -1,4 +1,11 @@
 <h2>List of rented tapes</h2>
+<div class='row'>
+  <div class='col-md-2'>Filter:</div>
+  <div class='col-md-4'>
+    <input type='text' [(ngModel)]='listFilter' />
+  </div>
+</div>
+<br/>
 <div>
 <button class="back" (click)="getRentedTapesSortedByTitle()">Sort alphabetically</button>
 <button class="back" (click)="getRentedTapesSortedByRating()">Sort by rating</button>
@@ -14,7 +21,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let tape of tapes">
+      <tr *ngFor="let tape of tapes |tapeFilter: listFilter">
 
         <td><a [routerLink]="['/detail',tape.id]">
           {{tape.title}}

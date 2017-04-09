@@ -42,4 +42,7 @@ export class TapeService {
                 }
             }));
     }
+      getCategories() {
+    return ['Horror','Crime','War', 'Comedy', 'Science-Fiction', 'Drama', 'Thriller','Musical'];
+  }
 }
