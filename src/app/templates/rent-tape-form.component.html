@@ -8,7 +8,7 @@
       <label for="customerLN">Customer last name</label>
       <input type="text" class="form-control" id="customerLN" [(ngModel)]="customerLN"  name="lastName" #lastName="ngModel">
     </div>
-
-    <button type="submit" class="back" (click)="rent(tapeForRent, customerFN,customerLN)" [disabled]="!rentTapeForm.form.valid">Submit</button>
+  
+    <button type="submit" class="back" (click)="rent(tapeForRent, customerFN, customerLN)" [disabled]="!rentTapeForm.form.valid">Submit</button>
   </form>
-</div>
+  </div>
