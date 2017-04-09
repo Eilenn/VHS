@@ -2,11 +2,10 @@
   <h2>VHS Movies listing</h2>
 </div>
 <div class="container">
- 
   <!-- Modal -->
   <div class="modal fade" id="myModal" role="dialog">
     <div class="modal-dialog">
-    
+
       <!-- Modal content-->
       <div class="modal-content">
         <div class="modal-header">
@@ -20,10 +19,8 @@
           <button type="button" class="back" data-dismiss="modal">Close</button>
         </div>
       </div>
-      
     </div>
   </div>
-  
 </div>
 <div class='row'>
   <div class='col-md-2'>Filter:</div>
@@ -32,13 +29,39 @@
   </div>
 </div>
 <br/>
+
 <button class="back" (click)="getSortedTapes()">Sort alphabetically</button>
-  <button type="button" class="back" data-toggle="modal" data-target="#myModal">Add a tape</button>
-  <br/>
-<div class="list-group">
-  <a *ngFor="let tape of tapes |tapeFilter: listFilter" (click)="onSelect(tape);gotoDetail()" class="list-group-item">{{tape.title}}</a>
-  <nav>
-    <br/>
-    <button class="back" (click)="goBack()">Back</button>
-  </nav>
+<button class="back" (click)="getTapesSortedByRating()">Sort by rating</button>
+<button class="back" (click)="getTapesSortedByYear()">Sort by year</button>
+<button type="button" class="back" data-toggle="modal" data-target="#myModal">Add a tape</button>
+</div>
+<br/>
+
+<div class='table-responsive'>
+  <table class='table' *ngIf='tapes && tapes.length'>
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Year</th>
+        <th>5 Star Rating</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let tape of tapes |tapeFilter: listFilter">
+
+        <td><a [routerLink]="['/detail',tape.id]">
+          {{tape.title}}
+</a>
+        </td>
+        <td>{{ tape.year}}</td>
+        <td>
+          <star [rating]='tape.rating'>
+          </star>
+        </td>
+        <td><button *ngIf="tape.status===0" class="back">Rent</button><button *ngIf="tape.status===1" class="back">Collect</button></td>
+
+      </tr>
+    </tbody>
+  </table>
+  <button class="back" (click)="goBack()">Back</button>
 </div>

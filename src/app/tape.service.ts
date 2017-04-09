@@ -21,9 +21,9 @@ export class TapeService {
         parameter = parameter ? parameter.toLocaleLowerCase() : null;
         return this.getTapes()
             .then(tapes => tapes.sort((a: any, b: any) => {
-                if (a[parameter].toLocaleLowerCase() < b[parameter].toLocaleLowerCase()) {
+                if (a[parameter] < b[parameter]) {
                     return -1;
-                } else if (a[parameter].toLocaleLowerCase() > b[parameter].toLocaleLowerCase()) {
+                } else if (a[parameter] > b[parameter]) {
                     return 1;
                 } else {
                     return 0;

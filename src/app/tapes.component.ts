@@ -15,9 +15,9 @@ export class TapesComponent implements OnInit {
   selectedTape: Tape;
   listFilter: string;
 
-  onSelect(tape: Tape): void {
+ /* onSelect(tape: Tape): void {
     this.selectedTape = tape;
-  }
+  }*/
   constructor(private _router: Router, private _location: Location, private _tapeService: TapeService) {
 
   }
@@ -27,13 +27,19 @@ export class TapesComponent implements OnInit {
   ngOnInit(): void {
     this.getTapes();
   }
-  gotoDetail(): void {
+  /*gotoDetail(): void {
     this._router.navigate(['/detail', this.selectedTape.id]);
-  }
+  }*/
   goBack(): void {
     this._location.back();
   }
   getSortedTapes(): void {
     this._tapeService.getSortedTapes('title').then(tapes => this.tapes = tapes);
+  }
+  getTapesSortedByRating(): void {
+    this._tapeService.getSortedTapes('rating').then(tapes => this.tapes = tapes);
+  }
+    getTapesSortedByYear(): void {
+    this._tapeService.getSortedTapes('year').then(tapes => this.tapes = tapes);
   }
 }
