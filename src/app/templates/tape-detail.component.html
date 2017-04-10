@@ -1,23 +1,44 @@
-        <div class="container">
-  <!-- Modal -->
-  <div class="modal fade" id="rentModal" role="dialog">
-    <div class="modal-dialog">
+<div class="container">
+    <!-- Modal -->
+    <div class="modal fade" id="rentModal" role="dialog">
+        <div class="modal-dialog">
 
-      <!-- Modal content-->
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <p class="modal-title">Rent a tape</p>
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <p class="modal-title">Rent a tape</p>
+                </div>
+                <div class="modal-body">
+                    <rent-tape-form [tapeToRent]='tape'></rent-tape-form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="back" data-dismiss="modal">Close</button>
+                </div>
+            </div>
         </div>
-        <div class="modal-body">
-          <rent-tape-form [tapeToRent]='tape'></rent-tape-form>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="back" data-dismiss="modal">Close</button>
-        </div>
-      </div>
     </div>
-  </div>
+</div>
+<div class="container">
+    <!-- Modal -->
+    <div class="modal fade" id="collectModal" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <p class="modal-title">Collect a tape</p>
+                </div>
+                <div class="modal-body">
+                    <collect-tape-form [tapeToCollect]='tape'></collect-tape-form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="back" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 <div *ngIf="tape">
     <h3>"{{tape.title}}" details:</h3>
@@ -30,18 +51,20 @@
         <div><label>country: </label>{{tape.country}}</div>
         <div><label>category: </label>{{tape.category}}</div>
         <div><label>price: </label>{{tape.price|currency:'USD':true}}</div>
-        <div><label>rating: </label><star [rating]='tape.rating'></star></div>
-         <div><label>status: </label>{{TapeStatus[tape.status] | lowercase}}</div>
-         <div *ngIf="tape.customer"><label>customer: </label>{{tape.customer.firstName}} {{tape.customer.lastName}}</div>
-         <div *ngIf="tape.customer"><label>rent date: </label>{{tape.rentDate}}</div>
-         <div *ngIf="tape.customer"><label>return date: </label>{{tape.returnDate}}</div>
+        <div><label>rating: </label>
+            <star [rating]='tape.rating'></star>
+        </div>
+        <div><label>status: </label>{{TapeStatus[tape.status] | lowercase}}</div>
+        <div *ngIf="tape.customer"><label>customer: </label>{{tape.customer.firstName}} {{tape.customer.lastName}}</div>
+        <div *ngIf="tape.customer"><label>rent date: </label>{{tape.rentDate}}</div>
+        <div *ngIf="tape.customer"><label>return date: </label>{{tape.returnDate}}</div>
     </div>
     <div>
         <button *ngIf="tape.status==TapeStatus.AVAILABLE" class="back" data-toggle="modal" data-target="#rentModal">Rent</button>
-    <button *ngIf="tape.status==TapeStatus.RENTED" class="back">Collect</button>
-        </div>
-        <br/>
-            <div >
-    <button class="back" (click)="goBack()">Back</button>
+        <button *ngIf="tape.status==TapeStatus.RENTED" class="back" data-toggle="modal" data-target="#collectModal">Collect</button>
+    </div>
+    <br/>
+    <div>
+        <button class="back" (click)="goBack()">Back</button>
     </div>
 </div>

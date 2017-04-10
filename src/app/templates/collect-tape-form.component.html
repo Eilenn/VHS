@@ -1,0 +1,13 @@
+<div class="container">
+  <form #collectTapeForm="ngForm" (ngSubmit)="onSubmit(rating)" submission=false>
+    <div class="form-group">
+      <label for="fee">Fee</label>
+     <input type="number" class="form-control" required>
+     </div>
+         <div class="form-group">
+      <label for="rating">Rating</label>
+     <input type="number" class="form-control" [(ngModel)]="rating" name="ranking">
+     </div>
+    <button type="submit" class="back" [disabled]="!collectTapeForm.form.valid">Submit</button>
+  </form>
+  </div>
