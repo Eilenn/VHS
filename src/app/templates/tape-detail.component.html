@@ -1,5 +1,27 @@
 <div class="container">
     <!-- Modal -->
+    <div class="modal fade" id="editModal" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <p class="modal-title">Edit a tape</p>
+                </div>
+                <div class="modal-body">
+                    
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="back" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <!-- Modal -->
     <div class="modal fade" id="rentModal" role="dialog">
         <div class="modal-dialog">
 
@@ -60,6 +82,7 @@
         <div *ngIf="tape.customer"><label>return date: </label>{{tape.returnDate}}</div>
     </div>
     <div>
+        <button class="back" data-toggle="modal" data-target="#editModal">Edit</button>
         <button *ngIf="tape.status==TapeStatus.AVAILABLE" class="back" data-toggle="modal" data-target="#rentModal">Rent</button>
         <button *ngIf="tape.status==TapeStatus.RENTED" class="back" data-toggle="modal" data-target="#collectModal">Collect</button>
     </div>

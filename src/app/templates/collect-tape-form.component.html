@@ -1,8 +1,12 @@
 <div class="container">
-  <form #collectTapeForm="ngForm" (ngSubmit)="onSubmit(rating)" submission=false>
+  <form #collectTapeForm="ngForm" (ngSubmit)="onSubmit(rating, fee, additionalFee)" submission=false>
     <div class="form-group">
       <label for="fee">Fee</label>
      <input type="number" class="form-control" id="fee" required [(ngModel)]="fee" name="fee">
+     </div>
+         <div class="form-group">
+      <label for="additionalFee">Additional fee</label>
+     <input type="number" class="form-control" id="additionalFee" [(ngModel)]="additionalFee" name="additionalFee">
      </div>
          <div class="form-group">
       <label for="rating">Rating (between 1 and 5)</label>
