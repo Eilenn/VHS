@@ -15,7 +15,7 @@ import { CUSTOMERS } from "./mock-customers";
 })
 export class RentTapeFormComponent implements OnInit {
     @Input() tapeToRent: Tape;
-    @Input() customer: Customer;
+
     constructor(private _tapeService: TapeService,
     private _route: ActivatedRoute,
     private _location: Location){
@@ -24,36 +24,23 @@ export class RentTapeFormComponent implements OnInit {
     customers: Customer[];
         ngOnInit(): void {
             this.customers=CUSTOMERS;
-            /* this._route.params
-      .switchMap((params: Params) => this._tapeService.getTape(+params['id']))
-      .subscribe(tape => this.tapeToRent = tape);*/
         }
-
-    model = new Tape(15, 'The Silence of the Lambs', 'Jonathan Demme', 1991,1.99,TapeStatus.AVAILABLE,null,5);
 
     onSubmit(tape: Tape,customer: Customer) {
        this.tapeToRent.status=TapeStatus.RENTED;
         this.tapeToRent.customer=customer;
         TAPES[this.tapeToRent.id-1]=this.tapeToRent;
-        //let index=TAPES.length+1;
-        //this.model.id=index;
-       // let newTape: Tape=Object.assign({},this.model);
-        //TAPES.push(newTape);
     }
-    /*rent(tape:Tape,customer:Customer){
-
-
-
+    /*rent2(tape:Tape,customer:Customer){
         this.tapeToRent.status=TapeStatus.RENTED;
-        this.tapeToRent.customer=this.customer;
+        this.tapeToRent.customer.firstName=customer.firstName;
+        this.tapeToRent.customer.lastName=customer.lastName;
         TAPES[this.tapeToRent.id-1]=this.tapeToRent;
-        //tape.status=TapeStatus.RENTED;
-        //tape.customer=customer;
-        //TAPES[tape.id-1]=tape;
     }*/
-    rent(tape: Tape,customerFN: string, customerLN:string){
+    rent(customerFN: string, customerLN:string, rentDate: Date){
          this.tapeToRent.status=TapeStatus.RENTED;
         this.tapeToRent.customer=new Customer(customerFN,customerLN);
+        this.tapeToRent.rentDate=rentDate;
         TAPES[this.tapeToRent.id-1]=this.tapeToRent;
     }
 }

@@ -9,6 +9,7 @@ export interface ITape {
         price:number;
         status?:TapeStatus;
         customer?: Customer;
+        rentDate?: Date;
         rating?:number;
         country?:string;
         category?: string;
@@ -24,6 +25,7 @@ export class Tape implements ITape{
         public price:number,
         public status?:TapeStatus,
         public customer?: Customer,
+        public rentDate?: Date,
         public rating?:number,
         public country?:string,
         public category?: string) {
