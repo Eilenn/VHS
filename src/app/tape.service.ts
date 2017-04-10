@@ -45,4 +45,7 @@ export class TapeService {
     getCategories() {
         return ['Horror', 'Crime', 'War', 'Comedy', 'Science-Fiction', 'Drama', 'Thriller', 'Musical'];
     }
+    getDamages(){
+        return ['unrewinded tape', 'delay', 'broken tape','lost', 'other'];
+    }
 }

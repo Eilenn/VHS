@@ -8,6 +8,15 @@
       <label for="additionalFee">Additional fee</label>
      <input type="number" class="form-control" id="additionalFee" [(ngModel)]="additionalFee" name="additionalFee">
      </div>
+     <div class="form-group">
+
+      <label for="cause">Cause of additional fee</label>
+     
+      <select class="form-control" id="damage" 
+            [(ngModel)]="damage" name="damage">
+      <option *ngFor="let damage of damages" [value]="cause">{{damage}}</option>
+      </select>
+    </div>
          <div class="form-group">
       <label for="rating">Rating (between 1 and 5)</label>
      <input type="number" class="form-control" id="rating" [(ngModel)]="rating" name="rating" [min]="1" [max]="5" >
