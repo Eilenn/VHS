@@ -26,5 +26,6 @@ export class TapeFormComponent implements OnInit {
         this.model.id=index;
         let newTape: Tape=Object.assign({},this.model);
         TAPES.push(newTape);
+        alert("Tape has been added.");
     }
 }

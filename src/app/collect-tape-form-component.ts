@@ -17,5 +17,6 @@ export class CollectTapeFormComponent{
         this.tapeToCollect.rentDate=null;
         this.tapeToCollect.returnDate=null;
         this.tapeToCollect.rating=rating;
+        alert("Tape has been collected");
     }
 }
