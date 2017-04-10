@@ -9,8 +9,13 @@
       <input type="text" class="form-control" id="customerLN" required [(ngModel)]="customerLN"  name="lastName" #lastName="ngModel">
     </div>
     <div class="form-group">
+      <label for="rentDate">Rent date</label>
      <input type="date" class="form-control" [(ngModel)]="rentDate" name="rentDate">
      </div>
-    <button type="submit" class="back" (click)="rent(customerFN, customerLN, rentDate)" [disabled]="!rentTapeForm.form.valid">Submit</button>
+     <div class="form-group">
+      <label for="returnDate">Return date</label>
+     <input type="date" class="form-control" [(ngModel)]="returnDate" name="returnDate">
+     </div>
+    <button type="submit" class="back" (click)="rent(customerFN, customerLN, rentDate, returnDate)" [disabled]="!rentTapeForm.form.valid">Submit</button>
   </form>
   </div>

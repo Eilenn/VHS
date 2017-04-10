@@ -33,7 +33,8 @@
         <div><label>rating: </label><star [rating]='tape.rating'></star></div>
          <div><label>status: </label>{{TapeStatus[tape.status] | lowercase}}</div>
          <div *ngIf="tape.customer"><label>customer: </label>{{tape.customer.firstName}} {{tape.customer.lastName}}</div>
-         <div *ngIf="tape.customer"><label>renting date: </label>{{tape.rentDate}}</div>
+         <div *ngIf="tape.customer"><label>rent date: </label>{{tape.rentDate}}</div>
+         <div *ngIf="tape.customer"><label>return date: </label>{{tape.returnDate}}</div>
     </div>
     <div>
         <button *ngIf="tape.status==TapeStatus.AVAILABLE" class="back" data-toggle="modal" data-target="#rentModal">Rent</button>
