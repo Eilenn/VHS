@@ -8,7 +8,7 @@
       <label for="additionalFee">Additional fee</label>
      <input type="number" class="form-control" id="additionalFee" [(ngModel)]="additionalFee" name="additionalFee">
      </div>
-     <div class="form-group">
+     <div [hidden]="additionalFee==undefined" class="form-group">
 
       <label for="cause">Cause of additional fee</label>
      

@@ -44,7 +44,7 @@ export class RentTapeFormComponent implements OnInit {
         this.tapeToRent.rentDate = rentDate;
         this.tapeToRent.returnDate = returnDate;
         TAPES[this.tapeToRent.id - 1] = this.tapeToRent;
-        if (CUSTOMERS.indexOf(anotherCustomer)! - 1) {
+        if (CUSTOMERS.indexOf(anotherCustomer)!=- 1) {
             CUSTOMERS.push(anotherCustomer);
         }
         alert("Tape has been rented to " + customerFN + " " + customerLN + ".");
