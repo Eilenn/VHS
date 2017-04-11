@@ -1,5 +1,5 @@
 import 'rxjs/add/operator/switchMap';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit,OnChanges } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Location } from '@angular/common';
 import { Tape } from './tape';
@@ -10,7 +10,7 @@ import {TapeStatus} from './tape-status';
   selector: 'tape-detail',
   templateUrl: './templates/tape-detail.component.html'
 })
-export class TapeDetailComponent implements OnInit {
+export class TapeDetailComponent implements OnInit,OnChanges {
   TapeStatus: typeof TapeStatus=TapeStatus;
   @Input() tape: Tape;
   constructor(
@@ -23,7 +23,22 @@ export class TapeDetailComponent implements OnInit {
       .switchMap((params: Params) => this._tapeService.getTape(+params['id']))
       .subscribe(tape => this.tape = tape);
   }
+    ngOnChanges(): void {
+    this._route.params
+      .switchMap((params: Params) => this._tapeService.getTape(+params['id']))
+      .subscribe(tape => this.tape = tape);
+  }
   goBack(): void {
     this._location.back();
+  }
+    getTape(): void {
+    this._tapeService.getTape(this.tape.id).then(tape => this.tape = tape);
+  }
+  update(tape: Tape){
+    this._tapeService.update(tape);
+    //this.getTape();
+       /* this._route.params
+      .switchMap((params: Params) => this._tapeService.getTape(+params['id']))
+      .subscribe(tape => this.tape = tape);*/
   }
 }

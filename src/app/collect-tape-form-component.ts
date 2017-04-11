@@ -17,6 +17,7 @@ export class CollectTapeFormComponent implements OnInit {
         }
 
     @Input() tapeToCollect: Tape;
+    
     constructor(private _tapeService: TapeService){
 
     }

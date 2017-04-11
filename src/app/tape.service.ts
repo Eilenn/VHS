@@ -48,4 +48,8 @@ export class TapeService {
     getDamages(){
         return ['unrewinded tape', 'delay', 'broken tape','lost', 'other'];
     }
+    update(tape: Tape){
+        let index=tape.id-1;
+        TAPES[index]=tape;
+    }
 }

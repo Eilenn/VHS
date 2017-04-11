@@ -10,7 +10,7 @@
                     <p class="modal-title">Edit a tape</p>
                 </div>
                 <div class="modal-body">
-                    <edit-tape [tapeToEdit]='tape'></edit-tape>
+                    <edit-tape [tapeToEdit]='tape' (emitter)="update($event)"></edit-tape>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="back" data-dismiss="modal">Close</button>
@@ -56,7 +56,7 @@
                     <collect-tape-form [tapeToCollect]='tape'></collect-tape-form>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="back" data-dismiss="modal">Close</button>
+                    <button type="button" class="back" data-dismiss="modal" (click)="getTape()">Close</button>
                 </div>
             </div>
         </div>
