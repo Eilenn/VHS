@@ -16,7 +16,6 @@ export class TapesComponent implements OnInit {
   listFilter: string;
 
   constructor(private _router: Router, private _location: Location, private _tapeService: TapeService) {
-
   }
   getTapes(): void {
     this._tapeService.getTapes().then(tapes => this.tapes = tapes);
@@ -24,7 +23,6 @@ export class TapesComponent implements OnInit {
   ngOnInit(): void {
     this.getTapes();
   }
-
   goBack(): void {
     this._location.back();
   }

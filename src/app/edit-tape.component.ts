@@ -1,4 +1,4 @@
-import { Component, Input, Output, OnInit, EventEmitter, OnChanges } from "@angular/core";
+import { Component, Input, Output, OnInit, EventEmitter, OnChanges} from "@angular/core";
 import { TapeService } from "./tape.service";
 import { Tape } from "./tape";
 import { TAPES } from "./mock-tapes";
@@ -19,16 +19,15 @@ export class EditTapeComponent implements OnInit, OnChanges {
     categories: string[];
     ngOnInit(): void {
         this.categories = this._tapeService.getCategories();
-
     }
     onSubmit() {
         this.emitter.emit(this.model);
-        //TAPES[this.tapeToEdit.id - 1] = this.tapeToEdit;
+        alert("Tape details have been edited.");
+      
     }
     ngOnChanges(): void {
         if (this.tapeToEdit != undefined) {
            this.model = Object.create(this.tapeToEdit);
-            //this._tapeService.getTape(this.tapeToEdit.id).then(tape=>this.model=tape);
         }
     }
 }
