@@ -99,8 +99,8 @@
           <star [rating]='tape.rating'>
           </star>
         </td>
-        <td><button type="button" class="back" (click)="onSelect(tape)" data-toggle="modal" data-target="#coverModal">Cover</button></td>
-         <td><button type="button" class="back" (click)="onSelect(tape)" data-toggle="modal" data-target="#gifModal">Gif</button></td>
+        <td><button *ngIf="tape.cover" type="button" class="back" (click)="onSelect(tape)" data-toggle="modal" data-target="#coverModal">Cover</button></td>
+         <td><button *ngIf="tape.gif" type="button" class="back" (click)="onSelect(tape)" data-toggle="modal" data-target="#gifModal">Gif</button></td>
       </tr>
     </tbody>
   </table>
