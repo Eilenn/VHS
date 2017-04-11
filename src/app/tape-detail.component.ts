@@ -37,6 +37,7 @@ export class TapeDetailComponent implements OnInit, OnChanges {
   }
   update(tape: Tape){
     this._tapeService.update(tape);
+    //this.getTape();
   }
   onClose(){
     this._router.navigate(['/tapes']);

@@ -74,7 +74,7 @@
 </div>
 <br/>
 <div>
-  <button class="back" (click)="getSortedTapes()">Sort alphabetically</button>
+  <button class="back"  (click)="getSortedTapes()">Sort alphabetically</button>
   <button class="back" (click)="getTapesSortedByRating()">Sort by rating</button>
   <button class="back" (click)="getTapesSortedByYear()">Sort by year</button>
   <button type="button" class="back" data-toggle="modal" data-target="#myModal">Add a tape</button>
@@ -91,7 +91,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let tape of tapes |tapeFilter: listFilter">
+      <tr *ngFor="let tape of tapes |tapeFilter: listFilter ">
 
         <td><a [routerLink]="['/detail',tape.id]">{{tape.title}}</a> </td>
         <td>{{tape.year}}</td>

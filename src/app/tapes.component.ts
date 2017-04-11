@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { Tape } from './tape';
 import { Router } from '@angular/router';
 import { TapeService } from './tape.service';
-import { OnInit } from '@angular/core';
+import { OnInit, OnChanges } from '@angular/core';
 import { Location } from '@angular/common';
 
 @Component({
@@ -10,10 +10,11 @@ import { Location } from '@angular/common';
   templateUrl: './templates/tapes.component.html',
   providers: [TapeService]
 })
-export class TapesComponent implements OnInit {
+export class TapesComponent implements OnInit,OnChanges {
   tapes: Tape[];
   selectedTape=new Tape(null,null,null,null,null,null);
   listFilter: string;
+  sortTerm: string='title';
 
   constructor(private _router: Router, private _location: Location, private _tapeService: TapeService) {
   }
@@ -21,6 +22,9 @@ export class TapesComponent implements OnInit {
     this._tapeService.getTapes().then(tapes => this.tapes = tapes);
   }
   ngOnInit(): void {
+    this.getTapes();
+  }
+    ngOnChanges(): void {
     this.getTapes();
   }
   goBack(): void {

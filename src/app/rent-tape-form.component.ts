@@ -26,24 +26,13 @@ export class RentTapeFormComponent implements OnInit {
         this.customers = CUSTOMERS;
     }
 
-    /*onSubmit(tape: Tape,customer: Customer) {
-       this.tapeToRent.status=TapeStatus.RENTED;
-        this.tapeToRent.customer=customer;
-        TAPES[this.tapeToRent.id-1]=this.tapeToRent;
-    }
-    rent2(tape:Tape,customer:Customer){
-        this.tapeToRent.status=TapeStatus.RENTED;
-        this.tapeToRent.customer.firstName=customer.firstName;
-        this.tapeToRent.customer.lastName=customer.lastName;
-        TAPES[this.tapeToRent.id-1]=this.tapeToRent;
-    }*/
     rent(customerFN: string, customerLN: string, rentDate: Date, returnDate: Date) {
         this.tapeToRent.status = TapeStatus.RENTED;
         let anotherCustomer = new Customer(customerFN, customerLN);
         this.tapeToRent.customer = anotherCustomer;
         this.tapeToRent.rentDate = rentDate;
         this.tapeToRent.returnDate = returnDate;
-        if (CUSTOMERS.indexOf(anotherCustomer)!=- 1) {
+        if (CUSTOMERS.indexOf(anotherCustomer)==- 1) {
             CUSTOMERS.push(anotherCustomer);
         }
         alert("Tape has been rented to " + customerFN + " " + customerLN + ".");

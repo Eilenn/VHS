@@ -23,7 +23,6 @@ export class EditTapeComponent implements OnInit, OnChanges {
     onSubmit() {
         this.emitter.emit(this.model);
         alert("Tape details have been edited.");
-      
     }
     ngOnChanges(): void {
         if (this.tapeToEdit != undefined) {

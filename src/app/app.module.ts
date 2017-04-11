@@ -10,6 +10,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { SubscribedCustomersComponent } from "./subscribed-customers.component";
 import { RentedTapesComponent } from "./rented-tapes.component";
 import { TapeFilterPipe } from "./tape-filter.pipe";
+import { TapeSortPipe } from "./tape-sort.pipe";
 import { StarComponent } from "./star.component";
 import { TapeFormComponent } from "./tape-form.component";
 import { RentTapeFormComponent } from "./rent-tape-form.component";
@@ -21,7 +22,7 @@ import { EditTapeComponent } from "./edit-tape.component";
   declarations: [AppComponent,
     TapeDetailComponent,
     TapesComponent, SubscribedCustomersComponent,RentedTapesComponent,
-    TapeFilterPipe, RentedTapesComponent,StarComponent, TapeFormComponent,RentTapeFormComponent, CollectTapeFormComponent, EditTapeComponent],
+    TapeFilterPipe,TapeSortPipe, RentedTapesComponent,StarComponent, TapeFormComponent,RentTapeFormComponent, CollectTapeFormComponent, EditTapeComponent],
   providers: [
     TapeService
   ],
