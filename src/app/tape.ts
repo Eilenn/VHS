@@ -14,7 +14,8 @@ export interface ITape {
         rating?:number;
         country?:string;
         category?: string;
-    
+        cover?:string;
+        gif?: string;
 }
 
 export class Tape implements ITape{
@@ -30,6 +31,8 @@ export class Tape implements ITape{
         public returnDate?: Date,
         public rating?:number,
         public country?:string,
-        public category?: string) {
+        public category?: string,
+        public cover?:string,
+        public gif?:string) {
     }
 }

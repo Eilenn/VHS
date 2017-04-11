@@ -35,6 +35,10 @@
       <option *ngFor="let cat of categories" [value]="cat">{{cat}}</option>
       </select>
     </div>
+     <div class="form-group">
+      <label for="cover">Cover address</label>
+      <input type="text" class="form-control" id="cover" [(ngModel)]="model.cover" name="cover" placeholder="./app/covers/rocky.jpg">
+    </div>
     <button type="submit" class="back" [disabled]="!tapeForm.form.valid">Submit</button>
   </form>
   <br/>

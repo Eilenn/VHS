@@ -12,7 +12,7 @@ import { Location } from '@angular/common';
 })
 export class TapesComponent implements OnInit {
   tapes: Tape[];
-  selectedTape: Tape;
+  selectedTape=new Tape(null,null,null,null,null,null);
   listFilter: string;
 
   constructor(private _router: Router, private _location: Location, private _tapeService: TapeService) {
@@ -34,5 +34,8 @@ export class TapesComponent implements OnInit {
   }
   getTapesSortedByYear(): void {
     this._tapeService.getSortedTapes('year').then(tapes => this.tapes = tapes);
+  }
+  onSelect(tape: Tape){
+    this.selectedTape=tape;
   }
 }

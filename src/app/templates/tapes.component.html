@@ -23,7 +23,7 @@
   </div>
 </div>
 
-<div class="container">
+<div class="containerCover">
   <!-- Modal -->
   <div class="modal fade" id="coverModal" role="dialog">
     <div class="modal-dialog">
@@ -32,10 +32,10 @@
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <p class="modal-title">Movie cover</p>
+          <p class="modal-title">{{selectedTape.title}} cover</p>
         </div>
         <div class="modal-body">
-          <p>Movie Cover</p>
+          <img src={{selectedTape.cover}}>
         </div>
         <div class="modal-footer">
           <button type="button" class="back" data-dismiss="modal">Close</button>
@@ -45,6 +45,27 @@
   </div>
 </div>
 
+<div class="containerCover">
+  <!-- Modal -->
+  <div class="modal fade" id="gifModal" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <p class="modal-title">{{selectedTape.title}} gif</p>
+        </div>
+        <div class="modal-body">
+          <img src={{selectedTape.gif}}>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="back" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 <div class='row'>
   <div class='col-md-2'>Filter:</div>
   <div class='col-md-4'>
@@ -78,7 +99,8 @@
           <star [rating]='tape.rating'>
           </star>
         </td>
-        <td><button type="button" class="back" data-toggle="modal" data-target="#coverModal">Cover</button></td>
+        <td><button type="button" class="back" (click)="onSelect(tape)" data-toggle="modal" data-target="#coverModal">Cover</button></td>
+         <td><button type="button" class="back" (click)="onSelect(tape)" data-toggle="modal" data-target="#gifModal">Gif</button></td>
       </tr>
     </tbody>
   </table>
