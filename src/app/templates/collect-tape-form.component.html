@@ -19,8 +19,11 @@
       </select>
     </div>
          <div class="form-group">
-      <label for="rating">Rating (between 1 and 5)</label>
-     <input type="number" class="form-control" id="rating" [(ngModel)]="rating" name="rating" [min]="1" [max]="5" >
+      <label for="rating">Rating</label>
+     
+      <select class="form-control" id="rating" [(ngModel)]="rating" name="rating">
+      <option *ngFor="let rat of ratings" [value]="rat">{{rat}}</option>
+      </select>
      </div>
     <button type="submit" class="back" [disabled]="!collectTapeForm.form.valid">Submit</button>
   </form>

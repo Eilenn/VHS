@@ -12,8 +12,10 @@ import { TapeService } from "./tape.service";
 })
 export class CollectTapeFormComponent implements OnInit {
     damages: string[];
+    ratings: number[];
     ngOnInit(): void {
         this.damages = this._tapeService.getDamages();
+        this.ratings=this._tapeService.getRatings();
     }
 
     @Input() tapeToCollect: Tape;

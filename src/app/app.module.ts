@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { CustomFormsModule } from 'ng2-validation'
 import { AppComponent } from './app.component';
 import{FormsModule} from '@angular/forms';
 import { TapesComponent } from './tapes.component';
@@ -18,7 +17,7 @@ import { CollectTapeFormComponent } from "./collect-tape-form-component";
 import { EditTapeComponent } from "./edit-tape.component";
 
 @NgModule({
-  imports: [BrowserModule, AppRoutingModule, FormsModule,CustomFormsModule],
+  imports: [BrowserModule, AppRoutingModule, FormsModule],
   declarations: [AppComponent,
     TapeDetailComponent,
     TapesComponent, SubscribedCustomersComponent,RentedTapesComponent,
