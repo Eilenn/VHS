@@ -10,6 +10,7 @@ import { Tape } from "./tape";
 })
 export class RentedTapesComponent implements OnInit{
      tapes: Tape[];
+     asc: boolean=true;
     constructor(private _tapeService: TapeService, private _location: Location) {
 
   }
@@ -24,9 +25,19 @@ export class RentedTapesComponent implements OnInit{
   this._location.back();
 }
   getRentedTapesSortedByTitle(): void{
-    this._tapeService.getRentedTapesSortedByParameter('title').then(tapes=>this.tapes=tapes);
+    this._tapeService.getRentedTapesSortedByParameter('title',this.asc).then(tapes=>this.tapes=tapes);
+    this.changeSortingDirection();
   }
     getRentedTapesSortedByRating(): void{
-    this._tapeService.getRentedTapesSortedByParameter('rating').then(tapes=>this.tapes=tapes);
+    this._tapeService.getRentedTapesSortedByParameter('rating',this.asc).then(tapes=>this.tapes=tapes);
+    this.changeSortingDirection();
+  }
+  private changeSortingDirection(){
+    if(this.asc){
+      this.asc=false;
+    }
+    else{
+      this.asc=true;
+    }
   }
 }

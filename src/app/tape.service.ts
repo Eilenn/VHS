@@ -17,26 +17,28 @@ export class TapeService {
         return this.getTapes()
             .then(tapes => tapes.filter(tape => tape.status === rented));
     }
-    getSortedTapes(parameter: string): Promise<Tape[]> {
+    getSortedTapes(parameter: string,asc: boolean): Promise<Tape[]> {
+        let sorter=asc?-1:1;
         parameter = parameter ? parameter.toLocaleLowerCase() : null;
         return this.getTapes()
             .then(tapes => tapes.sort((a: any, b: any) => {
                 if (a[parameter] < b[parameter]) {
-                    return -1;
+                    return sorter;
                 } else if (a[parameter] > b[parameter]) {
-                    return 1;
+                    return -sorter;
                 } else {
                     return 0;
                 }
             }));
     }
-    getRentedTapesSortedByParameter(parameter: string): Promise<Tape[]> {
+    getRentedTapesSortedByParameter(parameter: string,asc: boolean): Promise<Tape[]> {
+        let sorter=asc?-1:1;
         return this.getRentedTapes()
             .then(tapes => tapes.sort((a: any, b: any) => {
                 if (a[parameter] < b[parameter]) {
-                    return -1;
+                    return sorter;
                 } else if (a[parameter] > b[parameter]) {
-                    return 1;
+                    return -sorter;
                 } else {
                     return 0;
                 }

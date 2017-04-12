@@ -15,6 +15,7 @@ export class TapesComponent implements OnInit,OnChanges {
   selectedTape=new Tape(null,null,null,null,null,null);
   listFilter: string;
   sortTerm: string='title';
+   asc: boolean=true;
 
   constructor(private _router: Router, private _location: Location, private _tapeService: TapeService) {
   }
@@ -31,15 +32,26 @@ export class TapesComponent implements OnInit,OnChanges {
     this._location.back();
   }
   getSortedTapes(): void {
-    this._tapeService.getSortedTapes('title').then(tapes => this.tapes = tapes);
+    this._tapeService.getSortedTapes('title', this.asc).then(tapes => this.tapes = tapes);
+    this.changeSortingDirection();
   }
   getTapesSortedByRating(): void {
-    this._tapeService.getSortedTapes('rating').then(tapes => this.tapes = tapes);
+    this._tapeService.getSortedTapes('rating',this.asc).then(tapes => this.tapes = tapes);
+     this.changeSortingDirection();
   }
   getTapesSortedByYear(): void {
-    this._tapeService.getSortedTapes('year').then(tapes => this.tapes = tapes);
+    this._tapeService.getSortedTapes('year',this.asc).then(tapes => this.tapes = tapes);
+     this.changeSortingDirection();
   }
   onSelect(tape: Tape){
     this.selectedTape=tape;
+  }
+    private changeSortingDirection(){
+    if(this.asc){
+      this.asc=false;
+    }
+    else{
+      this.asc=true;
+    }
   }
 }

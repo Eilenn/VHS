@@ -47,6 +47,14 @@
       <label for="rating">Rating (between 1 and 5)</label>
      <input type="number" class="form-control" id="rating" [(ngModel)]="model.rating" name="rating" [min]="1" [max]="5" >
      </div>
+          <div class="form-group">
+      <label for="cover">Cover file path</label>
+      <input type="text" class="form-control" id="cover" [(ngModel)]="model.cover" name="cover" placeholder="./app/covers/rocky.jpg">
+    </div>
+         <div class="form-group">
+      <label for="gif">Gif file path</label>
+      <input type="text" class="form-control" id="gif" [(ngModel)]="model.gif" name="gif" placeholder="./app/gifs/rocky.gif">
+    </div>
         <button type="submit" class="back" [disabled]="!editTapeForm.form.valid">Submit</button>
     </form>
 </div>
