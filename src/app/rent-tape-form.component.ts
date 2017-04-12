@@ -15,7 +15,6 @@ import { CUSTOMERS } from "./mock-customers";
 })
 export class RentTapeFormComponent implements OnInit {
     @Input() tapeToRent: Tape;
-    rentDate: string;
 
     constructor(private _tapeService: TapeService,
         private _route: ActivatedRoute,

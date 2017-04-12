@@ -11,27 +11,50 @@ import { TapeService } from "./tape.service";
     providers: [TapeService]
 })
 export class CollectTapeFormComponent implements OnInit {
-     damages: string[];
-        ngOnInit(): void {
-            this.damages=this._tapeService.getDamages();
-        }
+    damages: string[];
+    ngOnInit(): void {
+        this.damages = this._tapeService.getDamages();
+       // this.calculateNumberOfDays();
+        //this.calculateSuggestedFee();
+        console.log(this.suggestedFee)
+    }
 
     @Input() tapeToCollect: Tape;
-    
-    constructor(private _tapeService: TapeService){
+   // @Input() suggestedFee: number;
+    //numberOfDays:number;
+
+    constructor(private _tapeService: TapeService) {
 
     }
 
+
+    /*private calculateNumberOfDays() {
+        if(this.tapeToCollect!=undefined){
+        let oneDay = 24 * 60 * 60 * 1000; // hours*minutes*seconds*milliseconds
+        let diffDays = Math.round(Math.abs((this.tapeToCollect.returnDate.getTime() - this.tapeToCollect.rentDate.getTime()) / (oneDay)));
+        this.numberOfDays=diffDays;
+        }
+
+    }
+     public calculateSuggestedFee(){
+         this.calculateNumberOfDays();
+          if(this.tapeToCollect!=undefined){
+        this.suggestedFee=this.numberOfDays*this.tapeToCollect.price;}
+     }*/
+
     onSubmit(rating: number, fee: number, additionalFee: number) {
         this.tapeToCollect.status = TapeStatus.AVAILABLE;
-        this.tapeToCollect.customer=null;
-        this.tapeToCollect.rentDate=null;
-        this.tapeToCollect.returnDate=null;
-        this.tapeToCollect.rating=rating;
-        if(additionalFee===undefined){
-            additionalFee=0;
+        this.tapeToCollect.customer = null;
+        this.tapeToCollect.rentDate = null;
+        this.tapeToCollect.returnDate = null;
+        this.tapeToCollect.rating = rating;
+        let sum = this.calculateFee(fee, additionalFee);
+        alert("Fee equals " + sum + " dollars. \n Press ok to confirm that fee has been paid.");
+    }
+    private calculateFee(fee: number, additionalFee: number) {
+        if (additionalFee === undefined) {
+            additionalFee = 0;
         }
-        let sum=fee+additionalFee;
-        alert("Fee equals "+sum +" dollars. \n Press ok to confirm that fee has been paid.");
+        return fee + additionalFee;
     }
 }
