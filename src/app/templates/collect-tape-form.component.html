@@ -1,6 +1,6 @@
 <div class="container">
   <form *ngIf="tapeToCollect" #collectTapeForm="ngForm" (ngSubmit)="onSubmit(rating, fee, additionalFee)" submission=false>
-    <div><label>Suggested fee: </label>${{tapeToCollect.price}} </div>
+    <div><label>Suggested fee: </label>${{tapeToCollect.suggestedFee}} </div>
     <div class="form-group">
       <label for="fee">Fee</label>
      <input type="number" class="form-control" id="fee" required [(ngModel)]="fee" name="fee">

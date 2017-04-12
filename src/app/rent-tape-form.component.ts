@@ -35,6 +35,18 @@ export class RentTapeFormComponent implements OnInit {
         if (CUSTOMERS.indexOf(anotherCustomer)==- 1) {
             CUSTOMERS.push(anotherCustomer);
         }
+        this.tapeToRent.suggestedFee=this.calculateSuggestedFee();
         alert("Tape has been rented to " + customerFN + " " + customerLN + ".");
     }
+        private calculateNumberOfDays() {
+        
+        let oneDay:number = 24 * 60 * 60 * 1000; // hours*minutes*seconds*milliseconds
+        let returnDate=new Date(this.tapeToRent.returnDate).getTime();
+        let rentDate=new Date(this.tapeToRent.rentDate).getTime();
+        let diffDays:number = Math.round(Math.abs(( returnDate- rentDate) / (oneDay)));
+        return diffDays;
+    }
+     private calculateSuggestedFee(){    
+        return this.calculateNumberOfDays()*this.tapeToRent.price;
+     }
 }

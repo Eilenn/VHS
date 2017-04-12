@@ -14,34 +14,13 @@ export class CollectTapeFormComponent implements OnInit {
     damages: string[];
     ngOnInit(): void {
         this.damages = this._tapeService.getDamages();
-       // this.calculateNumberOfDays();
-        //this.calculateSuggestedFee();
-        console.log(this.suggestedFee)
     }
 
     @Input() tapeToCollect: Tape;
-   // @Input() suggestedFee: number;
-    //numberOfDays:number;
 
     constructor(private _tapeService: TapeService) {
 
     }
-
-
-    /*private calculateNumberOfDays() {
-        if(this.tapeToCollect!=undefined){
-        let oneDay = 24 * 60 * 60 * 1000; // hours*minutes*seconds*milliseconds
-        let diffDays = Math.round(Math.abs((this.tapeToCollect.returnDate.getTime() - this.tapeToCollect.rentDate.getTime()) / (oneDay)));
-        this.numberOfDays=diffDays;
-        }
-
-    }
-     public calculateSuggestedFee(){
-         this.calculateNumberOfDays();
-          if(this.tapeToCollect!=undefined){
-        this.suggestedFee=this.numberOfDays*this.tapeToCollect.price;}
-     }*/
-
     onSubmit(rating: number, fee: number, additionalFee: number) {
         this.tapeToCollect.status = TapeStatus.AVAILABLE;
         this.tapeToCollect.customer = null;

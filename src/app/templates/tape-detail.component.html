@@ -78,8 +78,8 @@
         </div>
         <div><label>status: </label>{{TapeStatus[tape.status] | lowercase}}</div>
         <div *ngIf="tape.customer"><label>customer: </label>{{tape.customer.firstName}} {{tape.customer.lastName}}</div>
-        <div *ngIf="tape.customer"><label>rent date: </label>{{tape.rentDate}}</div>
-        <div *ngIf="tape.customer"><label>return date: </label>{{tape.returnDate}}</div>
+        <div *ngIf="tape.customer"><label>rent date: </label>{{tape.rentDate | date: 'yyyy-MM-dd'}}</div>
+        <div *ngIf="tape.customer"><label>return date: </label>{{tape.returnDate | date: 'yyyy-MM-dd'}}</div>
     </div>
     <div>
         <button class="back" data-toggle="modal" data-target="#editModal">Edit</button>
