@@ -26,7 +26,6 @@ describe('TapesComponent', () => {
     let el2: HTMLElement;
     let tapeService: TapeService;
     let TAPES: Tape[];
-    //  let loc: Location;
     beforeEach(async(() => {
         TestBed.configureTestingModule
             ({
@@ -34,24 +33,6 @@ describe('TapesComponent', () => {
                 declarations: [TapesComponent, StarComponent, TapeFilterPipe, TapeFormComponent, RouterLinkStubDirective, RouterOutletStubComponent],
                 providers: [TapeService, { provide: Location, useClass: SpyLocation }]
 
-            })
-            .overrideComponent(TapesComponent, {
-                set: {
-                    templateUrl: '/base/src/app/templates/tapes.component.html',
-                    styleUrls: ['/base/src/app/styles.css'],
-                }
-            })
-            .overrideComponent(StarComponent, {
-                set: {
-                    templateUrl: '/base/src/app/templates/star.component.html',
-                    styleUrls: ['/base/src/app/styles.css'],
-                }
-            })
-            .overrideComponent(TapeFormComponent, {
-                set: {
-                    templateUrl: '/base/src/app/templates/tape-form.component.html',
-                    styleUrls: ['/base/src/app/styles.css'],
-                }
             })
             .compileComponents();
     }));
@@ -68,10 +49,6 @@ describe('TapesComponent', () => {
             { id: 9, title: 'Alien', director: 'Ridley Scott', year: 1979, price: 0.99, status: TapeStatus.RENTED, rating: 2, customer: CUSTOMERS[2], cover: './app/covers/alien.jpg', gif: './app/gifs/alien.gif', rentDate: new Date('2017-04-10'), returnDate: new Date('2017-04-11'), suggestedFee: 0.99 },
         ];
         spyOn(tapeService, 'getTapes').and.returnValue(Promise.resolve(TAPES));
-        // let injector = ReflectiveInjector.resolveAndCreate([LocationStrategy, Location]);
-        //   loc = injector.get(Location);
-        // spyOn(loc, 'back');
-
 
     });
     it('should create component', () => expect(comp).toBeDefined());
@@ -82,12 +59,24 @@ describe('TapesComponent', () => {
         expect(comp.tapes).toEqual(TAPES);
     }));
         it('should get tapes in table', fakeAsync(() => {
+            
         comp.getTapes();
-       // fixture.detectChanges();
         tick();
         fixture.detectChanges();
          de2 = fixture.debugElement.queryAll(By.css('td'));
         el2=de2[0].nativeElement;
         expect(el2.textContent).toContain(TAPES[0].title);
+    }));
+            it('should get any cell in any row in table', fakeAsync(() => {
+            
+        comp.getTapes();
+        tick();
+        fixture.detectChanges();
+         de2 = fixture.debugElement.queryAll(By.css('tr'));
+        el2=de2[3].nativeElement;
+        let foundTd=el2.querySelector('td');
+        let foundTable=el2.querySelectorAll('td');
+        expect(foundTd.textContent).toContain(TAPES[2].title);
+        expect(foundTable[1].textContent).toContain(TAPES[2].year);
     }));
 });
