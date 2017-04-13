@@ -24,16 +24,16 @@ describe('TapeFilterPipe test', () => {
         it('filters TAPES when search term is star',()=>{
         let filter='star';
         let numberOfResults=2;
-        expect(pipe.transform(TAPES,filter).length).toEqual(numberOfResults);
+        expect(pipe.transform(TAPES,filter).length).toBe(numberOfResults);
     });
             it('filters TAPES when no search term',()=>{
         let filter='';
         let numberOfResults=4;
-        expect(pipe.transform(TAPES,filter).length).toEqual(numberOfResults);
+        expect(pipe.transform(TAPES,filter).length).toBe(numberOfResults);
     });
     it('filters TAPES when no results',()=>{
         let filter='pulp';
         let numberOfResults=0;
-        expect(pipe.transform(TAPES,filter).length).toEqual(numberOfResults);
+        expect(pipe.transform(TAPES,filter).length).toBe(numberOfResults);
     });                
 })

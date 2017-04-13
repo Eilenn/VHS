@@ -1,6 +1,4 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { ActivatedRoute, Params } from '@angular/router';
-import { Location } from '@angular/common';
 import { TapeStatus } from "./tape-status";
 import { Tape } from "./tape";
 import { TAPES } from "./mock-tapes";
@@ -17,8 +15,7 @@ export class RentTapeFormComponent implements OnInit {
     @Input() tapeToRent: Tape;
 
     constructor(private _tapeService: TapeService,
-        private _route: ActivatedRoute,
-        private _location: Location) {
+       ) {
 
     }
     customers: Customer[];
