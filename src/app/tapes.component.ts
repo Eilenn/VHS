@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { Tape } from './tape';
-import { Router } from '@angular/router';
 import { TapeService } from './tape.service';
 import { OnInit, OnChanges } from '@angular/core';
 import { Location } from '@angular/common';
@@ -17,7 +16,7 @@ export class TapesComponent implements OnInit,OnChanges {
   sortTerm: string='title';
    asc: boolean=true;
 
-  constructor(private _router: Router, private _location: Location, private _tapeService: TapeService) {
+  constructor( private _location: Location, private _tapeService: TapeService) {
   }
   getTapes(): void {
     this._tapeService.getTapes().then(tapes => this.tapes = tapes);
