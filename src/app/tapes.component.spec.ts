@@ -13,6 +13,7 @@ import { StarComponent } from "./star.component";
 import { FormsModule } from "@angular/forms";
 import { TapeFilterPipe } from "./tape-filter.pipe";
 import { TapeFormComponent } from "./tape-form.component";
+import { SpyLocation } from "./testing/spylocation";
 
 
 describe('TapesComponent', () => {
@@ -22,13 +23,13 @@ describe('TapesComponent', () => {
     let el: HTMLElement;
     let tapeService: TapeService;
     let TAPES: Tape[];
-    let loc: Location;
+  //  let loc: Location;
     beforeEach(async(() => {
          TestBed.configureTestingModule
         ({
             imports:[FormsModule],
           declarations: [TapesComponent,StarComponent,TapeFilterPipe,TapeFormComponent,RouterLinkStubDirective, RouterOutletStubComponent],
-            providers: [TapeService,Location,{provide: LocationStrategy, useClass: HashLocationStrategy}]
+            providers: [TapeService, {provide:Location,useClass: SpyLocation}]
 
         })
             .overrideComponent(TapesComponent, {
