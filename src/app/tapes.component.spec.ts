@@ -19,9 +19,11 @@ import { fakeAsync } from "@angular/core/testing";
 
 describe('TapesComponent', () => {
     let de: DebugElement[];
+    let de2: DebugElement[];
     let comp: TapesComponent;
     let fixture: ComponentFixture<TapesComponent>;
     let el: HTMLElement;
+    let el2: HTMLElement;
     let tapeService: TapeService;
     let TAPES: Tape[];
     //  let loc: Location;
@@ -77,7 +79,15 @@ describe('TapesComponent', () => {
         comp.getTapes();
         fixture.detectChanges();
         tick();
-        comp.tapes;
         expect(comp.tapes).toEqual(TAPES);
+    }));
+        it('should get tapes in table', fakeAsync(() => {
+        comp.getTapes();
+       // fixture.detectChanges();
+        tick();
+        fixture.detectChanges();
+         de2 = fixture.debugElement.queryAll(By.css('td'));
+        el2=de2[0].nativeElement;
+        expect(el2.textContent).toContain(TAPES[0].title);
     }));
 });
