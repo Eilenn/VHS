@@ -18,27 +18,27 @@ describe('Tape Service Test', () => {
         inject([TapeService], (service: TapeService) => {
             expect(service instanceof TapeService).toBe(true);
         }));
-    it('it can getTapes', inject([TapeService],
+    it(' can getTapes', inject([TapeService],
         fakeAsync((service: TapeService) => {
             service.getTapes().then(tapesFromService => tapes = tapesFromService);
             tick();
             expect(tapes.length).toEqual(TAPES.length);
         })));
-    it('it can getTape by id', inject([TapeService],
+    it(' can getTape by id', inject([TapeService],
         fakeAsync((service: TapeService) => {
             let tapeId: number = 1;
             service.getTape(tapeId).then(tapeFromService => tape = tapeFromService);
             tick();
             expect(tape.id).toEqual(tapeId);
         })));
-    it('it can get rentedtapes', inject([TapeService],
+    it('can get rentedtapes', inject([TapeService],
         fakeAsync((service: TapeService) => {
             let numberOfRentedTapes: number=6;
             service.getRentedTapes().then(tapesFromService => rentedTapes = tapesFromService);
             tick();
             expect(rentedTapes.length).toEqual(numberOfRentedTapes);
         })));
-            it('it can get tapes sorted by title ascending', inject([TapeService],
+            it('can get tapes sorted by title ascending', inject([TapeService],
         fakeAsync((service: TapeService) => {
             let sortTerm: string='title';
             let expectedTitle: string='Alien';
@@ -47,7 +47,7 @@ describe('Tape Service Test', () => {
             tick();
             expect(sortedTapes[0].title).toEqual(expectedTitle);
         })));
-                    it('it can get tapes sorted by title descending', inject([TapeService],
+                    it('can get tapes sorted by title descending', inject([TapeService],
         fakeAsync((service: TapeService) => {
             let sortTerm: string='title';
             let expectedTitle: string='The Sting';
@@ -57,7 +57,7 @@ describe('Tape Service Test', () => {
             expect(sortedTapes[0].title).toEqual(expectedTitle);
         })));
         //getRentedTapesSortedByParameter(parameter: string,asc: boolean)
-         it('it can get rented tapes sorted by rating ascending', inject([TapeService],
+         it('can get rented tapes sorted by rating ascending', inject([TapeService],
         fakeAsync((service: TapeService) => {
             let sortTerm: string='rating';
             let expectedTitle: string='Rocky';
@@ -66,7 +66,7 @@ describe('Tape Service Test', () => {
             tick();
             expect(sortedTapes[0].title).toEqual(expectedTitle);
         })));
-                 it('it can get rented tapes sorted by rating descending', inject([TapeService],
+                 it('can get rented tapes sorted by rating descending', inject([TapeService],
         fakeAsync((service: TapeService) => {
             let sortTerm: string='rating';
             let expectedTitle: string='Star Wars: Episode VI - Return of the Jedi';
@@ -75,4 +75,10 @@ describe('Tape Service Test', () => {
             tick();
             expect(sortedTapes[0].title).toEqual(expectedTitle);
         })));
+            it('can get Ratings',
+        inject([TapeService], (service: TapeService) => {
+            let ratings=new Array;
+            ratings=service.getRatings();
+            expect(ratings.length).toEqual(5);
+        }));
 });
