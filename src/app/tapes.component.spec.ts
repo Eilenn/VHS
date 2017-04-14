@@ -54,7 +54,6 @@ describe('TapesComponent', () => {
     it('should create component', () => expect(comp).toBeDefined());
     it('should get Tapes', fakeAsync(() => {
         comp.getTapes();
-        fixture.detectChanges();
         tick();
         expect(comp.tapes).toEqual(TAPES);
     }));
