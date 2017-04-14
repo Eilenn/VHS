@@ -8,7 +8,6 @@ describe('Tape Service Test', () => {
     let tape: Tape;
     let rentedTapes: Tape[];
     let sortedTapes: Tape[];
-    let service: TapeService;
     beforeEach(async () => {
         TestBed.configureTestingModule({
             providers: [TapeService]
@@ -39,12 +38,40 @@ describe('Tape Service Test', () => {
             tick();
             expect(rentedTapes.length).toEqual(numberOfRentedTapes);
         })));
-            it('it can get tapes sorted by title', inject([TapeService],
+            it('it can get tapes sorted by title ascending', inject([TapeService],
         fakeAsync((service: TapeService) => {
             let sortTerm: string='title';
             let expectedTitle: string='Alien';
             let ascending: boolean=true;
-            service.getSortedTapes(sortTerm,true).then(tapesFromService => sortedTapes = tapesFromService);
+            service.getSortedTapes(sortTerm,ascending).then(tapesFromService => sortedTapes = tapesFromService);
+            tick();
+            expect(sortedTapes[0].title).toEqual(expectedTitle);
+        })));
+                    it('it can get tapes sorted by title descending', inject([TapeService],
+        fakeAsync((service: TapeService) => {
+            let sortTerm: string='title';
+            let expectedTitle: string='The Sting';
+            let ascending: boolean=false;
+            service.getSortedTapes(sortTerm,ascending).then(tapesFromService => sortedTapes = tapesFromService);
+            tick();
+            expect(sortedTapes[0].title).toEqual(expectedTitle);
+        })));
+        //getRentedTapesSortedByParameter(parameter: string,asc: boolean)
+         it('it can get rented tapes sorted by rating ascending', inject([TapeService],
+        fakeAsync((service: TapeService) => {
+            let sortTerm: string='rating';
+            let expectedTitle: string='Rocky';
+            let ascending: boolean=true;
+            service.getRentedTapesSortedByParameter(sortTerm,ascending).then(tapesFromService => sortedTapes = tapesFromService);
+            tick();
+            expect(sortedTapes[0].title).toEqual(expectedTitle);
+        })));
+                 it('it can get rented tapes sorted by rating descending', inject([TapeService],
+        fakeAsync((service: TapeService) => {
+            let sortTerm: string='rating';
+            let expectedTitle: string='Star Wars: Episode VI - Return of the Jedi';
+            let ascending: boolean=false;
+            service.getRentedTapesSortedByParameter(sortTerm,ascending).then(tapesFromService => sortedTapes = tapesFromService);
             tick();
             expect(sortedTapes[0].title).toEqual(expectedTitle);
         })));
