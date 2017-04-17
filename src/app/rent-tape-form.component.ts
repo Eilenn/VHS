@@ -1,10 +1,10 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { TapeStatus } from "./tape-status";
 import { Tape } from "./tape";
-import { TAPES } from "./mock-tapes";
+import { TAPES } from "./mock/mock-tapes";
 import { TapeService } from "./tape.service";
 import { Customer } from "./customer";
-import { CUSTOMERS } from "./mock-customers";
+import { CUSTOMERS } from "./mock/mock-customers";
 
 @Component({
     selector: 'rent-tape-form',

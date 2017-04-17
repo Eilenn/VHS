@@ -1,6 +1,6 @@
 import { TapeFilterPipe } from "./tape-filter.pipe";
 import { TapeStatus } from "./tape-status";
-import { CUSTOMERS } from "./mock-customers";
+import { CUSTOMERS } from "./mock/mock-customers";
 import { Tape } from "./tape";
 
 describe('TapeFilterPipe test', () => {

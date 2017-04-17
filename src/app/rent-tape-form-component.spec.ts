@@ -7,7 +7,7 @@ import { TapeService } from "./tape.service";
 import { Tape } from "./tape";
 import { TapeStatus } from "./tape-status";
 import { Customer } from "./customer";
-import { CUSTOMERS } from "./mock-customers";
+import { CUSTOMERS } from "./mock/mock-customers";
 
 describe('RentTapeFormComponent(templateUrl)', function () {
     let de: DebugElement[];

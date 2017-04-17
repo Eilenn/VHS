@@ -7,7 +7,7 @@ import { TapesComponent } from "./tapes.component";
 import { By } from "@angular/platform-browser";
 import { Tape } from "./tape";
 import { TapeStatus } from "./tape-status";
-import { CUSTOMERS } from "./mock-customers";
+import { CUSTOMERS } from "./mock/mock-customers";
 import { RouterLinkStubDirective, RouterOutletStubComponent } from "./testing/router-stubs";
 import { StarComponent } from "./star.component";
 import { FormsModule } from "@angular/forms";

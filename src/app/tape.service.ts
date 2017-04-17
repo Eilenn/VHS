@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Tape } from './tape';
-import { TAPES } from './mock-tapes';
+import { TAPES } from './mock/mock-tapes';
 import { TapeStatus } from "./tape-status";
 
 @Injectable()

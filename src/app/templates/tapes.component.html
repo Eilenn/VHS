@@ -95,7 +95,7 @@
 
         <td ><a [routerLink]="['/detail',tape.id]">{{tape.title}}</a> </td>
         <td>{{tape.year}}</td>
-        <td>
+        <td *ngIf='tape.rating'>
           <star [rating]='tape.rating'>
           </star>
         </td>

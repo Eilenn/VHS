@@ -1,4 +1,4 @@
-import { Customer } from "./customer";
+import { Customer } from "../customer";
 
 let customer=new Customer('John', 'Wick');
 let customer2=new Customer('Wade', 'Wilson');

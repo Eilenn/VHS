@@ -1,6 +1,6 @@
 import { TestBed, inject, fakeAsync, tick } from "@angular/core/testing";
 import { TapeService } from "./tape.service";
-import { TAPES } from "./mock-tapes";
+import { TAPES } from "./mock/mock-tapes";
 import { Tape } from "./tape";
 import { TapeStatus } from "./tape-status";
 

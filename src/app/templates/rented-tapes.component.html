@@ -34,7 +34,7 @@
         </td>
         <td *ngIf="tape.customer">{{ tape.customer.firstName}} {{tape.customer.lastName}}</td>
         <td *ngIf="tape.customer===undefined">undefined</td>
-        <td>
+        <td *ngIf="tape.rating">
           <star [rating]='tape.rating'>
           </star>
         </td>

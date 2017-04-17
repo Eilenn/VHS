@@ -1,7 +1,7 @@
 import { Component, Input, Output, OnInit, EventEmitter, OnChanges} from "@angular/core";
 import { TapeService } from "./tape.service";
 import { Tape } from "./tape";
-import { TAPES } from "./mock-tapes";
+import { TAPES } from "./mock/mock-tapes";
 
 @Component({
     selector: 'edit-tape',

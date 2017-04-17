@@ -2,7 +2,7 @@ import { Component, OnInit} from '@angular/core';
 
 import { TapeStatus } from "./tape-status";
 import { Tape } from "./tape";
-import { TAPES } from "./mock-tapes";
+import { TAPES } from "./mock/mock-tapes";
 import { TapeService } from "./tape.service";
 
 @Component({

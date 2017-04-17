@@ -1,6 +1,6 @@
-import { Tape } from './tape';
-import { TapeStatus } from './tape-status';
-import { Customer } from "./customer";
+import { Tape } from '../tape';
+import { TapeStatus } from '../tape-status';
+import { Customer } from "../customer";
 import { CUSTOMERS } from "./mock-customers";
 
 export const TAPES:Tape[] = [
