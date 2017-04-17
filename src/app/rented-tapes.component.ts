@@ -10,6 +10,7 @@ import { Tape } from "./tape";
 })
 export class RentedTapesComponent implements OnInit{
      tapes: Tape[];
+     customerFilter:string;
      asc: boolean=true;
     constructor(private _tapeService: TapeService, private _location: Location) {
 
