@@ -2,6 +2,7 @@ import { TestBed, inject, fakeAsync, tick } from "@angular/core/testing";
 import { TapeService } from "./tape.service";
 import { TAPES } from "./mock-tapes";
 import { Tape } from "./tape";
+import { TapeStatus } from "./tape-status";
 
 describe('Tape Service Test', () => {
     let tapes: Tape[];
@@ -31,54 +32,68 @@ describe('Tape Service Test', () => {
             tick();
             expect(tape.id).toEqual(tapeId);
         })));
-    it('can get rentedtapes', inject([TapeService],
+    it('can get rentedTapes', inject([TapeService],
         fakeAsync((service: TapeService) => {
-            let numberOfRentedTapes: number=6;
+            let numberOfRentedTapes: number = 6;
             service.getRentedTapes().then(tapesFromService => rentedTapes = tapesFromService);
             tick();
             expect(rentedTapes.length).toEqual(numberOfRentedTapes);
         })));
-            it('can get tapes sorted by title ascending', inject([TapeService],
+    it('can get tapes sorted by title ascending', inject([TapeService],
         fakeAsync((service: TapeService) => {
-            let sortTerm: string='title';
-            let expectedTitle: string='Alien';
-            let ascending: boolean=true;
-            service.getSortedTapes(sortTerm,ascending).then(tapesFromService => sortedTapes = tapesFromService);
+            let sortTerm: string = 'title';
+            let expectedTitle: string = 'Alien';
+            let ascending: boolean = true;
+            service.getSortedTapes(sortTerm, ascending).then(tapesFromService => sortedTapes = tapesFromService);
             tick();
             expect(sortedTapes[0].title).toEqual(expectedTitle);
         })));
-                    it('can get tapes sorted by title descending', inject([TapeService],
+    it('can get tapes sorted by title descending', inject([TapeService],
         fakeAsync((service: TapeService) => {
-            let sortTerm: string='title';
-            let expectedTitle: string='The Sting';
-            let ascending: boolean=false;
-            service.getSortedTapes(sortTerm,ascending).then(tapesFromService => sortedTapes = tapesFromService);
+            let sortTerm: string = 'title';
+            let expectedTitle: string = 'The Sting';
+            let ascending: boolean = false;
+            service.getSortedTapes(sortTerm, ascending).then(tapesFromService => sortedTapes = tapesFromService);
             tick();
             expect(sortedTapes[0].title).toEqual(expectedTitle);
         })));
-        //getRentedTapesSortedByParameter(parameter: string,asc: boolean)
-         it('can get rented tapes sorted by rating ascending', inject([TapeService],
+
+    it('can get rented tapes sorted by rating ascending', inject([TapeService],
         fakeAsync((service: TapeService) => {
-            let sortTerm: string='rating';
-            let expectedTitle: string='Rocky';
-            let ascending: boolean=true;
-            service.getRentedTapesSortedByParameter(sortTerm,ascending).then(tapesFromService => sortedTapes = tapesFromService);
+            let sortTerm: string = 'rating';
+            let expectedTitle: string = 'Rocky';
+            let ascending: boolean = true;
+            service.getRentedTapesSortedByParameter(sortTerm, ascending).then(tapesFromService => sortedTapes = tapesFromService);
             tick();
             expect(sortedTapes[0].title).toEqual(expectedTitle);
         })));
-                 it('can get rented tapes sorted by rating descending', inject([TapeService],
+    it('can get rented tapes sorted by rating descending', inject([TapeService],
         fakeAsync((service: TapeService) => {
-            let sortTerm: string='rating';
-            let expectedTitle: string='Star Wars: Episode VI - Return of the Jedi';
-            let ascending: boolean=false;
-            service.getRentedTapesSortedByParameter(sortTerm,ascending).then(tapesFromService => sortedTapes = tapesFromService);
+            let sortTerm: string = 'rating';
+            let expectedTitle: string = 'Star Wars: Episode VI - Return of the Jedi';
+            let ascending: boolean = false;
+            service.getRentedTapesSortedByParameter(sortTerm, ascending).then(tapesFromService => sortedTapes = tapesFromService);
             tick();
             expect(sortedTapes[0].title).toEqual(expectedTitle);
         })));
-            it('can get Ratings',
+    it('can get Ratings',
         inject([TapeService], (service: TapeService) => {
-            let ratings=new Array;
-            ratings=service.getRatings();
-            expect(ratings.length).toEqual(5);
+            let numberOfRatings: number = 5;
+            let ratings = new Array;
+            ratings = service.getRatings();
+            expect(ratings.length).toEqual(numberOfRatings);
+        }));
+            it('can get damages',
+        inject([TapeService], (service: TapeService) => {
+            let numberOfDamages: number = 5;
+            let damages = new Array;
+            damages = service.getDamages();
+            expect(damages.length).toEqual(numberOfDamages);
+        }));
+                    it('can update tape',
+        inject([TapeService], (service: TapeService) => {
+            let updatedTape= new Tape(1, 'The Silence of the Lambs', 'Jonathan Demme', 1991,1.99,TapeStatus.AVAILABLE,null,null,null,0);
+           service.update(updatedTape);
+            expect(TAPES[0]).toEqual(updatedTape);
         }));
 });
